@@ -60,3 +60,8 @@ flex-direction: row;
     flex-direction: column;
 }
 
+.find_btn, .become_btn {
+    height: 80px;
+    width: 400px;
+} 
+
