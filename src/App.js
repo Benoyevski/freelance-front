@@ -8,7 +8,7 @@ function App() {
     <>
     <Headerlk/>
       <div className='container'>
-        
+        <MainPage/>
       </div>
       </>
   );
