@@ -1,0 +1,11 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1041" height="858" viewBox="0 0 1041 858">
+    <g fill="none" fill-rule="evenodd" opacity=".5">
+        <g>
+            <g transform="translate(164 -66) translate(-164 66)">
+                <ellipse cx="520.2" cy="428.85" fill="#2D6E86" opacity=".4" rx="520.2" ry="428.85"/>
+                <ellipse cx="519.75" cy="428.4" fill="#22576B" opacity=".45" rx="297.45" ry="270"/>
+                <circle cx="518.4" cy="430.2" r="165.6" fill="#22576B"/>
+            </g>
+        </g>
+    </g>
+</svg>
