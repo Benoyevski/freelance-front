@@ -1,10 +1,16 @@
 
 import './App.css';
+import Headerlk from './components/Headerlk';
 import MainPage from './pages/Mainpage/MainPage';
 
 function App() {
   return (
-      <MainPage/>
+    <>
+    <Headerlk/>
+      <div className='container'>
+        
+      </div>
+      </>
   );
 }
 
