@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../styles/openPage.module.css";
-const OpenPage = () => {
+import styles from "../Mainpage/mainPage.module.css";
+const MainPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.customer}>
@@ -9,8 +9,8 @@ const OpenPage = () => {
             Исполнители для <br /> любых заданий
           </h1>
           <div className={styles.btns}>
-            <button>1</button>
-            <button>2</button>
+            <div className={styles.find_btn}>Найти исполнителя</div>
+            <div className={styles.become_btn}>Стать исполнителем</div>
           </div>
         </div>
         <img src="customer.svg" alt="" />
@@ -19,4 +19,4 @@ const OpenPage = () => {
   );
 };
 
-export default OpenPage;
+export default MainPage;

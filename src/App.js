@@ -1,9 +1,9 @@
 import './App.css';
-import OpenPage from './components/pages/OpenPage';
+import MainPage from './pages/Mainpage/MainPage';
 
 function App() {
   return (
-      <OpenPage/>
+      <MainPage/>
   );
 }
 
