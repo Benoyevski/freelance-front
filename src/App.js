@@ -1,10 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
+import OpenPage from './components/pages/OpenPage';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+      <OpenPage/>
   );
 }
 
