@@ -1,0 +1,43 @@
+footer {
+  width: 100%;
+  background-color: rgba(19, 193, 254, 0.15);
+}
+.general1 {
+  padding: 80px;
+}
+
+.general1 span {
+  color: #2d6d86;
+}
+
+.general1 p {
+  font-size: 12px;
+  line-height: 28px;
+}
+
+.general1 ul {
+  font-size: 12px;
+  line-height: 28px;
+}
+
+.general2 p {
+  display: flex;
+  background-color: #2d6e85;
+  flex-direction: column;
+  text-align: center;
+
+  padding: 20px;
+  color: black;
+}
+
+.payContainer {
+  display: flex;
+  background-color: #22586b;
+  align-items: center;
+  margin: auto;
+  height: 100px;
+  justify-content: center;
+}
+.payContainer img {
+  margin: 0 10px;
+}
