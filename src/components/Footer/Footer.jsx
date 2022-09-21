@@ -9,9 +9,9 @@ const Footer = () => {
     <footer>
       <div className={styles.general1}>
         <div className={styles.header1}>
-          <h7 className={styles.headerTitle1}>
+          <span className={styles.headerTitle1}>
             Биржа фриланса workzilla - бесплатно, быстро и надежно.
-          </h7>
+          </span>
           <p>
             Workzilla - личный помощник и дружественная среда, чтобы найти
             исполнителя для ваших заданий. Доверяйте выполнение ваших задач
@@ -22,7 +22,7 @@ const Footer = () => {
           </p>
         </div>
         <div className={styles.header2}>
-          <h7 className={styles.headerTitle2}>Как работает биржа фриланса?</h7>
+          <span className={styles.headerTitle2}>Как работает биржа фриланса?</span>
           <p>
             Найти фрилансера легко. Разместите название и опишите задачу.
             Назначьте цену. Уже через пару минут наша умная нейронная сеть
@@ -51,9 +51,9 @@ const Footer = () => {
           </p>
         </div>
         <div className={styles.header3}>
-          <h7 className={styles.headerTitle3}>
+          <span className={styles.headerTitle3}>
             Почему найти фрилансера на workzilla легко?
-          </h7>
+          </span>
           <p>
             Заказчикам нравится искать удаленных сотрудников на нашем сервисе.
             Workzilla ценят за выгодные условия и следующие преимущества:
