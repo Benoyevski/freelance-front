@@ -12,9 +12,9 @@ const Header = () => {
             </div>
           
            <div>
-           <a href="#" className={styles.register}>Войти</a> 
+           <a href="/" className={styles.register}>Войти</a> 
            <span>или</span>
-           <a href="#" className={styles.register}>Зарегистрироваться</a>
+           <a href="/" className={styles.register}>Зарегистрироваться</a>
            <button className={styles.btn}>Дать задание</button>
            </div>
           
