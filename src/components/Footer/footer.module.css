@@ -1,0 +1,40 @@
+footer{
+    width: 100%;
+}
+.general1 {
+  background-color: rgba(19, 193, 254, 0.15);
+  
+}
+
+.general1 h7 {
+  color: #2d6d86;
+}
+
+.general1 p {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.general1 ul {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.general2 p {
+  display: flex;
+  background-color: #22586b;
+  flex-direction: column;
+  text-align: center;
+  margin-top: -10px;
+  padding: 20px;
+  color: white;
+}
+
+.payContainer {
+  display: flex;
+  background-color: #22586b;
+  align-items: center;
+  margin: auto;
+  height: 83px;
+  justify-content: center;
+}
