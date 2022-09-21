@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../components/header.module.css";
+import styles from "./header.module.css";
 
-import logo from "../components/logo.png";
+import logo from "./logo.png";
 const Headerlk = () => {
   return (
     <div className={styles.header_bg}>

@@ -1,7 +1,11 @@
 import React from "react";
+import Header from "../../components/Header/Header";
 import styles from "../Mainpage/mainPage.module.css";
 const MainPage = () => {
+  
   return (
+    <>
+    <Header />
     <div className={styles.main_container}>
       <div className={styles.customer}>
         <div className={styles.title_and_btns}>
@@ -16,6 +20,8 @@ const MainPage = () => {
         <img src="customer.svg" alt="" />
       </div>
     </div>
+    </>
+    
   );
 };
 
