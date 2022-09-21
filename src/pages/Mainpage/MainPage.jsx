@@ -20,6 +20,7 @@ const MainPage = () => {
         <img src="customer.svg" alt="" />
       </div>
     </div>
+    <img className={styles.howItWork} src="howWork.png" alt="" />
     </>
     
   );
