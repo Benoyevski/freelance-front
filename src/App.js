@@ -1,16 +1,15 @@
 
-import './App.css';
-import Headerlk from './components/Headerlk';
-import Task from './components/Task';
-
-import MainPage from './pages/Mainpage/MainPage';
+import "./App.css";
+import MainPage from "./pages/Mainpage/MainPage";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>    
-       <Headerlk/>
-       <Task/>
-      </>
+    <>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
+    </>
   );
 }
 
