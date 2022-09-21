@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../Task/task.module.css";
 import { useState } from "react";
-import { addOrder } from "../../features/taskSlice";
+import { addOrder } from "../../features/orderSlice";
 import { useDispatch, useSelector } from "react-redux";
 const Task = () => {
   const dispatch = useDispatch()
