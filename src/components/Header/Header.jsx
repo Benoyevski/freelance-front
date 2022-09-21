@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Login from '../Login/Login';
+import SignUp from '../SignUp/SignUp';
 import styles from "./header.module.css"
 
 
 
 const Header = () => {
+
+    const [activeLogin, setActiveLogin] = useState(false);
+    const [activeAuth, setActiveAuth] = useState(false);
+
     return (
         <div className={styles.header_container}>
             <div className={styles.block}>
@@ -11,15 +17,18 @@ const Header = () => {
            <h2 className={styles.company_name}>workzilla</h2>
             </div>
           
-           <div>
-           <a href="/" className={styles.register}>Войти</a> 
+           <div className={styles.loginField}>
+            <div className={styles.modalField}>
+           <div className={styles.register} onClick={() => setActiveLogin(true)} >Войти</div> 
            <span>или</span>
-           <a href="/" className={styles.register}>Зарегистрироваться</a>
+           <div className={styles.register} onClick={() => setActiveAuth(true)}>Зарегистрироваться</div>
+           </div>
            <button className={styles.btn}>Найти задание</button>
            </div>
-          
+           <SignUp activeAuth={activeAuth} setActiveAuth={setActiveAuth} />
+            <Login activeLogin={activeLogin} setActiveLogin={setActiveLogin} />
         </div>
-    );
+    ); 
 };
 
 export default Header;

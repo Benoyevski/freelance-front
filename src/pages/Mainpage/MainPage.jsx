@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header";
 import styles from "../Mainpage/mainPage.module.css";
 const MainPage = () => {
   return (
-    <>
+    <div className={styles.background}>
       <Header />
       <div className={styles.main_container}>
         <div className={styles.customer}>
@@ -61,7 +61,7 @@ const MainPage = () => {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
