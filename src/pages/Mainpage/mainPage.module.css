@@ -45,23 +45,27 @@
 }
 
 .find_btn {
-  color:black;
-  animation-duration: 2s;
-  animation-timing-function: ease;
+  color:white;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
   animation-delay: 0s;
   animation-iteration-count: infinite;
   animation-direction: normal;
   animation-fill-mode: none;
   animation-play-state: running;
   animation-name: button-background-animation;
-  transition: .1s linear;
+  transition: 0.2s linear;
+
 }
 @keyframes button-background-animation {
   0%, 100%{
     background-color: #00b6f3
   }
   25% {
-    background-color: #f8f8f8;
+    background-color: #00f3d3
+  }
+  50% {
+    background-color: #00fda0;
 }
 75% {
   background-color: #0f4;
@@ -70,11 +74,12 @@
 
 
 .find_btn:hover, .become_btn:hover {
-  transform: scale(1.1, 1.05);
-  transition: 0.3s;
+  transform: scale(1.05);
+
 }
 
 .become_btn {
+  transition: 0.2s linear;
   background: rgba(36,127,163,.8);
 }
 
