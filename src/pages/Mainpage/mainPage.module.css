@@ -1,3 +1,7 @@
+.background {
+  background-color: white;
+}
+
 .customer {
   height: 600px;
   color: white;
@@ -45,9 +49,11 @@
 }
 
 .find_btn {
+
   color:white;
   animation-duration: 3s;
   animation-timing-function: ease-in-out;
+
   animation-delay: 0s;
   animation-iteration-count: infinite;
   animation-direction: normal;
@@ -58,18 +64,22 @@
 
 }
 @keyframes button-background-animation {
-  0%, 100%{
-    background-color: #00b6f3
+  0%,
+  100% {
+    background-color: #00b6f3;
   }
   25% {
+
     background-color: #00f3d3
   }
   50% {
     background-color: #00fda0;
-}
-75% {
-  background-color: #0f4;
-}
+
+  }
+  75% {
+    background-color: #0f4;
+  }
+
 }
 
 
@@ -83,10 +93,61 @@
   background: rgba(36,127,163,.8);
 }
 
+@media screen and (max-width: 1100px) {
+  .customer img {
+    display: none;
+  }
+}
+
+.howItWork {
+  padding: 0 0 90px 0;
+  width: 100%;
+}
+
+.benefits_title {
+  color: #2d6d86;
+  margin-bottom: 60px;
+  padding: 0 80px;
+}
+.benefits {
+  padding: 0 80px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.benefits div {
+  display: flex;
+  flex-direction: column;
+  width: 23%;
+  padding-right: 30px;
+  margin-bottom: 80px;
+}
+
+.benefits span {
+  margin: 10px 0;
+  font-size: 26px;
+  color: #2d6d86;
+}
+
+.benefits p {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.benefits div img {
+  width: 60%;
+  margin-bottom: 15px;
+}
+
+.hands_logo {
+  position: absolute;
+  right: 80px;
+  top: -340px;
+}
 
 @media screen and (max-width: 1100px) {
-  
-.customer img {
-display: none;
-}
+  .hands_logo {
+    display: none;
+  }
 }
