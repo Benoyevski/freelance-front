@@ -24,9 +24,10 @@ const MainPage = () => {
         </div>
       </div>
       <img className={styles.howItWork} src="howWork.png" alt="" />
-      <img className={styles.hands_logo} src="hands.svg" alt="" />
+
       <h1 className={styles.benefits_title}>Наши преимущества</h1>
       <div className={styles.benefits}>
+        <img className={styles.hands_logo} src="hands.svg" alt="" />
         <div>
           <img src="ii.svg" alt="" />
           <span>Искусственный интеллект</span>
