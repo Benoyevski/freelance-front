@@ -45,7 +45,7 @@
 }
 
 .find_btn {
-  color:black;
+  color: black;
   animation-duration: 2s;
   animation-timing-function: ease;
   animation-delay: 0s;
@@ -54,38 +54,80 @@
   animation-fill-mode: none;
   animation-play-state: running;
   animation-name: button-background-animation;
-  transition: .1s linear;
+  transition: 0.1s linear;
 }
 @keyframes button-background-animation {
-  0%, 100%{
-    background-color: #00b6f3
+  0%,
+  100% {
+    background-color: #00b6f3;
   }
   25% {
     background-color: #f8f8f8;
-}
-75% {
-  background-color: #0f4;
-}
+  }
+  75% {
+    background-color: #0f4;
+  }
 }
 
-
-.find_btn:hover, .become_btn:hover {
+.find_btn:hover,
+.become_btn:hover {
   transform: scale(1.1, 1.05);
   transition: 0.3s;
 }
 
 .become_btn {
-  background: rgba(36,127,163,.8);
+  background: rgba(36, 127, 163, 0.8);
 }
-
 
 @media screen and (max-width: 1100px) {
-  
-.customer img {
-display: none;
-}
+  .customer img {
+    display: none;
+  }
 }
 
 .howItWork {
+  padding: 0 0 90px 0;
   width: 100%;
+  position: relative;
+}
+
+.hands_logo {
+  position: absolute;
+  right: 80px;
+  top: 1050px;
+}
+
+.benefits_title {
+  color: #2d6d86;
+  margin-bottom: 60px;
+  padding: 0 80px;
+}
+.benefits {
+  padding: 0 80px;
+  display: flex;
+  flex-direction: row;
+}
+
+.benefits div {
+  display: flex;
+  flex-direction: column;
+  width: 23%;
+  padding-right: 30px;
+  margin-bottom: 80px;
+}
+
+.benefits span {
+  margin: 10px 0;
+  font-size: 26px;
+  color: #2d6d86;
+}
+
+.benefits p {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.benefits img {
+  width: 60%;
+  margin-bottom: 15px;
 }
