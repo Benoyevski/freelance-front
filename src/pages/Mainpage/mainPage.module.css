@@ -88,7 +88,6 @@
 .howItWork {
   padding: 0 0 90px 0;
   width: 100%;
-
 }
 
 .benefits_title {
@@ -131,4 +130,10 @@
   position: absolute;
   right: 80px;
   top: -340px;
+}
+
+@media screen and (max-width: 1100px) {
+  .hands_logo {
+    display: none;
+  }
 }
