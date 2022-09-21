@@ -3,7 +3,7 @@ import styles from "./footer.module.css";
 import pic1 from "../../public/paypal.png";
 import pic2 from "../../public/master.png";
 import pic3 from "../../public/visa.png";
-import pic4 from "../../public/qiwi.png";
+
 const Footer = () => {
   return (
     <footer>
@@ -22,7 +22,9 @@ const Footer = () => {
           </p>
         </div>
         <div className={styles.header2}>
-          <span className={styles.headerTitle2}>Как работает биржа фриланса?</span>
+          <span className={styles.headerTitle2}>
+            Как работает биржа фриланса?
+          </span>
           <p>
             Найти фрилансера легко. Разместите название и опишите задачу.
             Назначьте цену. Уже через пару минут наша умная нейронная сеть
@@ -91,7 +93,6 @@ const Footer = () => {
           <img src={pic1} />
           <img src={pic2} />
           <img src={pic3} />
-          <img src={pic4} />
         </div>
       </div>
     </footer>
