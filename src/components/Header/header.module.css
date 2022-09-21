@@ -1,0 +1,67 @@
+
+.header_container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    background-color: transparent;
+    width: 100%;
+}
+
+.block {
+    display: flex;
+    align-items: center;
+}
+
+
+.img_logo {
+    margin-left: 150px;
+    width: 90px;
+    height: 90px;
+}
+
+.company_name {
+    margin-left:20px;
+    font-size: 35px;
+    font-family: 'PT Sans', sans-serif;
+    color: #fff
+}
+
+
+.register {
+    font-size: 18px;
+    text-decoration: none;
+    font-family: 'PT Sans', sans-serif;
+    color: #fff;
+    font-weight: bold;
+}
+.register:hover {
+    border-bottom: 3px solid #fff;
+    
+}
+
+span{
+    color:  rgba(31, 32, 33, 0.3);
+    font-size: 19px;
+    margin: 0 5px 0 5px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+}
+
+.btn {
+    margin-right:  135px;
+    margin-left: 20px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 40px;
+    background-color: rgba(19,193,254,.3);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
