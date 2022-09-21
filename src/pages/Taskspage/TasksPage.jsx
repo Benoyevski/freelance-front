@@ -6,6 +6,7 @@ const TasksPage = () => {
     return (
         <>
             <Headerlk/>
+            <SideNavBar />
             <Task/>
         </>
     );

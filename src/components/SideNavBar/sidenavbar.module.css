@@ -1,0 +1,135 @@
+.sidebar_container {
+    position: relative;
+    width: 250px;
+    height: 100vh;
+    background-color: rgb(21, 21, 41);
+    color: #FFFAFA;
+
+
+    transition: 0.4s;
+}
+
+
+.sidebar_container_NX {
+    position: relative;
+    width: 85px;
+    height: 100vh;
+    background-color: rgb(21, 21, 41);
+    color: #FFFAFA;
+
+
+    transition: 0.4s;
+}
+
+
+
+
+
+.nav_upper, .nav_heading {
+    display: grid;
+}
+
+.nav_heading {
+    grid-template-columns: 2fr, 1fr;
+    grid-template-rows: 1fr;
+    height: 75px;
+}
+
+.nav_brand {
+    display: flex;
+    margin-top: 20px;
+}
+
+.nav_brand img {
+    padding: 0 10px;
+    width: 50px;
+    height: 40px;
+}
+
+.burger {
+    position: absolute;
+    right: 0;
+    margin: auto -35px;
+    padding: 20px 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    background-color:  rgb(21, 21, 41);
+    border: 2px solid #FFFAFA;
+    border-radius: 90px;
+    height: 71px;
+    width: 74px;
+}
+
+.burger span {
+    display: block;
+    margin-top: 5px;
+    margin-right: 5px;
+    background-color: #fff;
+    border-radius: 15px;
+    height: 4px;
+    width: 30px;
+
+
+    transition: 0.4s;
+}
+
+.burger:hover span {
+    margin: auto;
+} 
+
+.burger_in span:nth-child(1) {
+    width: 25px;
+    transform: translate(0px, 8px) rotate(-30deg);
+}
+
+
+.burger_in span:nth-child(2) {
+    display: none;
+}
+
+.burger_in span:nth-child(3) {
+    width: 25px;
+    transform: translate(0px, -8px) rotate(30deg);
+}
+
+.burger1  span{
+    margin: auto;
+}
+
+
+
+
+.burger_out:hover span:nth-child(1) {
+    width: 25px;
+    transform: translate(-3px, 8px) rotate(30deg);
+}
+
+
+.burger_out:hover span:nth-child(2) {
+    display: none;
+}
+
+.burger_out:hover span:nth-child(3) {
+    width: 25px;
+    transform: translate(-3px, -8px) rotate(-30deg);
+}
+
+.link_text {
+    text-decoration: none;
+    font-size: 20px;
+    color: #FFFAFA;
+    margin-top: 10px;
+    margin-left: 15px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 400;
+}
+
+.text {
+    display: none;
+}
+
+.img {
+    margin-left: 15px;
+    filter: invert(100%);
+}
