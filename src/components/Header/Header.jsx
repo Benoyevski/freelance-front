@@ -15,7 +15,7 @@ const Header = () => {
            <a href="/" className={styles.register}>Войти</a> 
            <span>или</span>
            <a href="/" className={styles.register}>Зарегистрироваться</a>
-           <button className={styles.btn}>Дать задание</button>
+           <button className={styles.btn}>Найти задание</button>
            </div>
           
         </div>
