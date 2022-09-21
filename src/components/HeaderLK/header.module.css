@@ -31,7 +31,7 @@
 }
 
 .header_bg{
-    background-color: #eaeaea;
+    background-color: transparent;
 }
 .nav_link{
     display: flex;

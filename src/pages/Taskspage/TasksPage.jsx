@@ -1,12 +1,13 @@
 import React from 'react';
 import Headerlk from '../../components/HeaderLK/Headerlk'
-import SideNavBar from '../../components/SideNavBar/SideNavBar';
+import Task from '../../components/Task/Task';
 
 const TasksPage = () => {
     return (
         <>
             <Headerlk/>
             <SideNavBar />
+            <Task/>
         </>
     );
 };
