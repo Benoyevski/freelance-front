@@ -5,7 +5,6 @@ import Footer from "./components/Footer/Footer";
 import OrderPage from "./pages/Orderpage/OrdersPage";
 import Task from "./components/Task/Task";
 
-
 function App() {
   return (
     <>
