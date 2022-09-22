@@ -6,7 +6,7 @@ import logo from "./logo.png";
 const Headerlk = () => {
   return (
     <div className={styles.header_bg}>
-      <div className="container">
+      <div className={styles.headerLk_container}>
         <div className={styles.nav}>
           <div className={styles.logo}>
             <Link to="/"><img src={logo} alt="" /></Link>
