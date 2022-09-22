@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./header.module.css";
+import { Link } from "react-router-dom";
 
 import logo from "./logo.png";
 const Headerlk = () => {
@@ -8,7 +9,7 @@ const Headerlk = () => {
       <div className="container">
         <div className={styles.nav}>
           <div className={styles.logo}>
-            <img src={logo} alt="" />
+            <Link to="/"><img src={logo} alt="" /></Link>
           </div>
           <div className={styles.nav_link}>
           <div className={styles.nav_link_item}>
@@ -16,7 +17,7 @@ const Headerlk = () => {
                 <ion-icon name="checkbox-outline"></ion-icon>
               </div>
               <div>
-                <a href="/works">Задание</a>
+                <Link to="/orders">Задание</Link>
               </div>
             </div>
             <div className={styles.nav_link_item}>
@@ -24,7 +25,7 @@ const Headerlk = () => {
               <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
               </div>
               <div>
-                <a href="/works">О нас</a>
+              <Link to="/works">о нас</Link>
               </div>
             </div>
             <div className={styles.nav_link_item}>
@@ -32,7 +33,7 @@ const Headerlk = () => {
               <ion-icon name="people-outline"></ion-icon>
               </div>
               <div>
-                <a href="/works">Контакты</a>
+                <Link to="/works">Контакты</Link>
               </div>
             </div>
           </div>

@@ -1,0 +1,9 @@
+.order_title{
+    display: flex;
+    justify-content: center;
+}
+
+.orders_block{
+    display: flex;
+    justify-content: center;
+}
