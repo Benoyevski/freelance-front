@@ -5,6 +5,23 @@ const initialState = {
     orders:[]
 }
 
+export const follow = createAsyncThunk('patch/order', 
+async ({orderId, id}, thunkAPI) => {
+  try {
+    const res = await fetch(`http://localhost:3030/followOrder/${orderId}`, {
+      method: "PATCH", 
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ user: id} )
+    });
+    
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error)
+  }
+})
 
 export const fetchOrders= createAsyncThunk(
     "fetch/orders",
@@ -43,7 +60,7 @@ export const addOrder = createAsyncThunk(
 
 
   const OrderSclice = createSlice({
-    name: "movie",
+    name: "order",
     initialState,
     reducers: {
 
@@ -56,7 +73,13 @@ export const addOrder = createAsyncThunk(
         .addCase(addOrder.fulfilled,(state,action)=>{
             state.orders.push(action.payload)
         })
-       
+       .addCase(follow.fulfilled, (state, action) => {
+        state.orders.map((item) => {
+          if (item._id === action.payload._id) {
+           item.freelancers.push(action.payload)
+          }
+        });
+       })
     },
   });
  

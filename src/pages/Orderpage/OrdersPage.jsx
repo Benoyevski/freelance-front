@@ -26,7 +26,7 @@ const OrderPage = () => {
           </div>
           <div>
             {orders.map((order) => {
-              return <Order order={order} />;
+              return <Order key={order._id} order={order} />;
             })}
           </div></div>
         </div>

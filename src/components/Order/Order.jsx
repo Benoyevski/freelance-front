@@ -1,6 +1,15 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { follow } from "../../features/orderSlice";
 import styles from "../Order/order.module.css";
 const Order = ({ order }) => {
+  const id = useSelector((state) => state.application.id)
+  const dispatch = useDispatch()
+
+  const handleFollow = (orderId) => {
+    dispatch(follow({orderId, id }))   
+  }
+
   return (
     <div className={styles.order}>
       <div className={styles.order_title}>
@@ -22,7 +31,9 @@ const Order = ({ order }) => {
         <p>{order.text}</p>
       </div>
       <div>
-        <div className={styles.order_btn}><button className={styles.order_btn}>Откликнуться</button></div>
+        <div className={styles.order_btn}>
+          <button onClick={() => handleFollow(order._id)} className={styles.order_btn}>Откликнуться</button>
+        </div>
       </div>
     </div>
   );
