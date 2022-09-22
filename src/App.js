@@ -1,8 +1,9 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import MainPage from "./pages/Mainpage/MainPage";
-import TasksPage from "./pages/Taskspage/TasksPage";
+import MainPage from "./pages/Mainpage/MainPage"
 import Footer from "./components/Footer/Footer";
+import OrderPage from "./pages/Orderpage/OrdersPage";
+import Task from "./components/Task/Task";
 
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/tasks" element={<TasksPage />} />
+        <Route path="/tasks" element={<Task/>} />
+        <Route path="/orders" element= {<OrderPage/>}/>
       </Routes>
       <Footer/>
     </>

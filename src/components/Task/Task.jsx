@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "../Task/task.module.css";
 import { useState } from "react";
-import { addOrder } from "../../features/taskSlice";
+import { addOrder } from "../../features/orderSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Headerlk from "../HeaderLK/Headerlk";
 const Task = () => {
   const dispatch = useDispatch()
   const id = useSelector((state)=> state.application.id)
@@ -15,6 +16,8 @@ const Task = () => {
 
 
   return (
+    <>
+    <Headerlk/>
     <div className="container">
       <h2>Создание задания</h2>
       <div className={styles.task_content}>
@@ -65,6 +68,7 @@ const Task = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
