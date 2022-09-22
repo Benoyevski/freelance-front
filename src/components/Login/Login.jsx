@@ -1,21 +1,32 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { loginThunk } from "../../features/applicationSlice";
 import styles from './login.module.css'
 
 const Login = ({activeLogin, setActiveLogin}) => {
 
+    const dispatch = useDispatch()
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     
 
-    const handleLogin = () => {
-
+    const handleLogin = (e,{login, password}) => {
+      dispatch(loginThunk({login, password}))
+      setLogin('')
+      setPassword('')
     }
+
+    const handleForm = (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+
   return (
     <div
       className={activeLogin ? styles.nomodal : styles.modal}
       onClick={() => setActiveLogin(false)}
     >
-      <form className={styles.content} onClick={(e) => e.stopPropagation()}>
+      <form className={styles.content} onClick={(e) => handleForm(e)}>
         <h2>Войти</h2>
         <input
           type="text"
@@ -31,7 +42,7 @@ const Login = ({activeLogin, setActiveLogin}) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={(e) => handleLogin(e)} className={styles.btn}>
+        <button onClick={(e) => handleLogin(e, {login, password})} className={styles.btn}>
           Войти
         </button>
       </form>

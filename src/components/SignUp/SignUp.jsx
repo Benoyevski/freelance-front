@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { authThunk } from "../../features/applicationSlice";
 import styles from "./signup.module.css";
 
 const SignUp = ({ activeAuth, setActiveAuth }) => {
-    
+  
+  const dispatch = useDispatch()
+
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,7 +15,8 @@ const SignUp = ({ activeAuth, setActiveAuth }) => {
   const [phone, setPhone] = useState("");
   const [mail, setMail] = useState("");
 
-  const handleSignUp = () => {
+  const handleSignUp = ({login, password, name, surname, phone, mail}) => {
+    dispatch(authThunk({login, password, name, surname, phone, mail}))
     setName("")
     setSurname("")
     setPhone("")
@@ -90,7 +95,7 @@ const SignUp = ({ activeAuth, setActiveAuth }) => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button className={styles.btn} onClick={()=> setStep(step-1)}>Назад</button>
-            <button onClick={(e) => handleSignUp(e)} className={styles.btn}>
+            <button onClick={(e) => handleSignUp({login, password, name, surname, phone, mail})} className={styles.btn}>
               Зарегистрироваться
             </button>
           </>
