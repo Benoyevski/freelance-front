@@ -1,8 +1,13 @@
 import React from "react";
 import styles from "../Order/order.module.css";
+
 const Order = ({ order }) => {
   return (
+    <>
+
+
     <div className={styles.order}>
+
       <div className={styles.order_title}>
         <h3>{order.title}</h3>
         <div className={styles.order_price}>
@@ -25,6 +30,7 @@ const Order = ({ order }) => {
         <div className={styles.order_btn}><button className={styles.order_btn}>Откликнуться</button></div>
       </div>
     </div>
+    </>
   );
 };
 
