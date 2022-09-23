@@ -9,8 +9,8 @@ import SideNavBar from "../../components/SideNavBar/SideNavBar";
 import { fetchOrders } from "../../features/orderSlice";
 import styles from "../Orderpage/orders.module.css";
 
-const OrderPage = () => {
-  const dispatch = useDispatch();
+const UserOrderPage = () => {
+    const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchOrders());
   }, []);
@@ -22,7 +22,7 @@ const OrderPage = () => {
       <div className="container">
         <div className={styles.orders_block}>
          <div> <div className={styles.order_title}>
-            <h2>Все заказы</h2>
+            <h2>Мои заказы</h2>
           </div>
           <div>
             {orders.map((order) => {
@@ -32,7 +32,7 @@ const OrderPage = () => {
         </div>
       </div>
     </>
-  );
+  )
 };
 
-export default OrderPage;
+export default UserOrderPage;
