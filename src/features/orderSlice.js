@@ -2,7 +2,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    orders:[]
+    orders:[],
+    follows: []
 }
 
 export const follow = createAsyncThunk('patch/order', 
@@ -15,9 +16,9 @@ async ({orderId, id}, thunkAPI) => {
       },
       body: JSON.stringify({ user: id} )
     });
-    
-    const data = await res.json();
-    return data;
+  
+    return await res.json();
+
   } catch (error) {
     return thunkAPI.rejectWithValue(error)
   }
@@ -73,11 +74,20 @@ export const addOrder = createAsyncThunk(
         .addCase(addOrder.fulfilled,(state,action)=>{
             state.orders.push(action.payload)
         })
-       .addCase(follow.fulfilled, (state, action) => {
-        state.orders.map((item) => {
+      //  .addCase(follow.fulfilled, (state, action) => {
+      //    state.orders.map((item) => {
+      //     if (item._id === action.payload._id) {
+      //      item.freelancers.push(action.payload)
+      //     }
+      //     return item
+      //   });
+      //  })
+      .addCase(follow.fulfilled, (state, action) => {
+        state.orders = state.orders.map((item) => {
           if (item._id === action.payload._id) {
            item.freelancers.push(action.payload)
           }
+          return item
         });
        })
     },
