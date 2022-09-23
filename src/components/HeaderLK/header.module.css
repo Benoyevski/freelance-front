@@ -62,4 +62,28 @@
     color: black;
 }
 
+.lk_select{
+    display: flex;
+
+    background-color: transparent;
+    border: 1px solid rgba(4, 125, 238, 1);
+
+}
+
+.lk_select_item{
+    width: 50%;
+    padding: 5px 15px;
+    border: 0.2px solid rgba(4, 125, 238, 1);
+    color: rgba(4, 125, 238, 1)
+
+}
+
+.lk_select_item_select{
+    width: 50%;
+    padding: 5px 15px;
+   color: white;
+    background-color:  rgba(4, 125, 238, 1)
+
+}
+
 

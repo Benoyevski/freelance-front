@@ -2,8 +2,10 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    orders:[]
+    orders:[],
+    role: localStorage.getItem("role")
 }
+
 
 export const follow = createAsyncThunk('patch/order', 
 async ({orderId, id}, thunkAPI) => {
@@ -39,7 +41,7 @@ export const fetchOrders= createAsyncThunk(
 
 export const addOrder = createAsyncThunk(
     "add/orders",
-    async ({ userid, movieId }, thunkAPI) => {
+    async ({creator,price,inner,term,title,location,categoryId }, thunkAPI) => {
       try {
         const res = await fetch("http://localhost:3030/order", {
           method: "POST",
@@ -47,8 +49,9 @@ export const addOrder = createAsyncThunk(
             Authorization: `Bearer ${thunkAPI.getState().application.token}`,
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ movie: movieId }),
+          body: JSON.stringify({creator,price,text:inner,workTime:term,title,location,categoryId }),
         });
+        
         const data = await res.json();
   
         return data;
@@ -60,7 +63,7 @@ export const addOrder = createAsyncThunk(
 
 
   const OrderSclice = createSlice({
-    name: "order",
+    name: "movie",
     initialState,
     reducers: {
 
@@ -73,13 +76,14 @@ export const addOrder = createAsyncThunk(
         .addCase(addOrder.fulfilled,(state,action)=>{
             state.orders.push(action.payload)
         })
-       .addCase(follow.fulfilled, (state, action) => {
-        state.orders.map((item) => {
-          if (item._id === action.payload._id) {
-           item.freelancers.push(action.payload)
-          }
-        });
-       })
+        .addCase(follow.fulfilled, (state, action) => {
+          state.orders.map((item) => {
+            if (item._id === action.payload._id) {
+             item.freelancers.push(action.payload)
+            }
+          });
+         })
+       
     },
   });
  

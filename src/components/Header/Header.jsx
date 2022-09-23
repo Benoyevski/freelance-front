@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Login from '../Login/Login';
 import SignUp from '../SignUp/SignUp';
 import styles from "./header.module.css"
@@ -23,7 +24,7 @@ const Header = () => {
            <span>или</span>
            <div className={styles.register} onClick={() => setActiveAuth(true)}>Зарегистрироваться</div>
            </div>
-           <button className={styles.btn}>Найти задание</button>
+           <Link to = "/orders"><button className={styles.btn}>Найти задание</button></Link>
            </div>
            <SignUp activeAuth={activeAuth} setActiveAuth={setActiveAuth} />
             <Login activeLogin={activeLogin} setActiveLogin={setActiveLogin} />
