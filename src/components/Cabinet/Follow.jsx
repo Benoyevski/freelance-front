@@ -23,8 +23,8 @@ const Follow = () => {
   const loading = useSelector((state) => state.user.load);
 
   const handleUnFollow = (orderId) => {
-    dispatch(unFollow({orderId, id}))
-  }
+    dispatch(unFollow({ orderId, id }));
+  };
 
   if (loading) {
     return <div>LOADING...</div>;
@@ -36,29 +36,36 @@ const Follow = () => {
         <h2>Задания, на которые вы отозвались</h2>
         <hr />
         <div>
-          {user &&
-            user.followOrders.map((i) => {
-              return (
-                <div className={styles.follow_order_card} key={i._id}>
-                  <div className={styles.headOrder}>
-                    <h3>{i.title}</h3>
-                    <div className={styles.headOrder_imgs}>
-                      <span className={styles.watch}>
-                        <img src="watch.svg" alt="" />
-                        {i.workTime + " ч"}
-                      </span>
-                      <span className={styles.money}>
-                        <img src="money.svg" alt="" />
-                        {i.price}
-                      </span>
+          {orders &&
+            orders.map((i) => {
+              if (i.freelancers.find((item) => item._id === id)) {
+                return (
+                  <div className={styles.follow_order_card} key={i._id}>
+                    <div className={styles.headOrder}>
+                      <h3>{i.title}</h3>
+                      <div className={styles.headOrder_imgs}>
+                        <span className={styles.watch}>
+                          <img src="watch.svg" alt="" />
+                          {i.workTime + " ч"}
+                        </span>
+                        <span className={styles.money}>
+                          <img src="money.svg" alt="" />
+                          {i.price}
+                        </span>
+                      </div>
+                    </div>
+                    <div className={styles.text_and_btn}>
+                      <p>{i.text}</p>
+                      <button
+                        onClick={() => handleUnFollow(i._id)}
+                        className={styles.remove_btn}
+                      >
+                        Удалить
+                      </button>
                     </div>
                   </div>
-                  <div className={styles.text_and_btn}>
-                    <p>{i.text}</p>
-                    <button onClick={() => handleUnFollow(i._id)} className={styles.remove_btn}>Удалить</button>
-                  </div>
-                </div>
-              );
+                );
+              }
             })}
         </div>
       </div>

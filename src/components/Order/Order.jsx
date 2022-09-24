@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { follow } from "../../features/orderSlice";
+import { follow } from '../../features/orderSlice';
 import styles from "../Order/order.module.css";
 
 const Order = ({ order }) => {
@@ -8,7 +8,7 @@ const Order = ({ order }) => {
   const dispatch = useDispatch()
 
   const handleFollow = (orderId) => {
-    dispatch(follow({orderId, id }))   
+    dispatch(follow({ id, orderId }))   
   }
   const token = useSelector((state) => state.application.token);
 
