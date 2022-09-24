@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchOrders } from "../../features/orderSlice";
+import { fetchOrders, unFollow } from "../../features/orderSlice";
 import { fetchUsers } from "../../features/userSlice";
 import styles from "../Cabinet/follow.module.css";
 import Headerlk from "../HeaderLK/Headerlk";
@@ -12,7 +12,7 @@ const Follow = () => {
   useEffect(() => {
     dispatch(fetchOrders());
     dispatch(fetchUsers());
-  }, [dispatch]);
+  }, []);
 
   const orders = useSelector((state) => state.order.orders);
 
@@ -21,6 +21,10 @@ const Follow = () => {
     state.user.users.find((item) => item._id === id)
   );
   const loading = useSelector((state) => state.user.load);
+
+  const handleUnFollow = (orderId) => {
+    dispatch(unFollow({orderId, id}))
+  }
 
   if (loading) {
     return <div>LOADING...</div>;
@@ -41,7 +45,7 @@ const Follow = () => {
                     <div className={styles.headOrder_imgs}>
                       <span className={styles.watch}>
                         <img src="watch.svg" alt="" />
-                        {i.workTime}
+                        {i.workTime + " ч"}
                       </span>
                       <span className={styles.money}>
                         <img src="money.svg" alt="" />
@@ -51,7 +55,7 @@ const Follow = () => {
                   </div>
                   <div className={styles.text_and_btn}>
                     <p>{i.text}</p>
-                    <button className={styles.remove_btn}>Удалить</button>
+                    <button onClick={() => handleUnFollow(i._id)} className={styles.remove_btn}>Удалить</button>
                   </div>
                 </div>
               );
