@@ -81,3 +81,23 @@ span{
 .modalField {
     display: flex;
 }
+
+.modalArea {
+    margin-right: 130px;
+    padding-top: 6.5px;
+}
+
+.area {
+    margin-top: 70px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: sans-serif;
+    cursor: pointer;
+    color: #fff;
+
+}
+
+.area:hover {
+   border-bottom: 3px solid #fff;
+}
