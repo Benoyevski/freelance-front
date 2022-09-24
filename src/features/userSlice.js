@@ -32,9 +32,7 @@ const userSlice = createSlice({
     .addCase(fetchUsers.rejected, (state, action) => {
      
       state.error = action.payload
-      state.load = false
-     
-      
+      state.load = false   
     })
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.users = action.payload;

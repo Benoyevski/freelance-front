@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   orders: [],
   role: localStorage.getItem("role"),
+  loading: false,
 };
 
 export const follow = createAsyncThunk(
@@ -98,6 +99,10 @@ const OrderSclice = createSlice({
     builder
       .addCase(fetchOrders.fulfilled, (state, action) => {
         state.orders = action.payload;
+        state.loading = false
+      })
+      .addCase(fetchOrders.pending, (state, action) => {
+        state.loading = true
       })
       .addCase(addOrder.fulfilled, (state, action) => {
         state.orders.push(action.payload);
