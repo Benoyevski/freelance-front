@@ -1,12 +1,24 @@
 .follow_orders {
-    width: 50%;
-    border: 1px solid gray;
-    height: 500px;
-    margin-top: 20px;
-    margin-left: 20px;
-    padding: 10px;
+  width: 60%;
+  height: 500px;
+  margin: 30px auto;
+  padding: 10px;
+  background-color: #f4f4f4;
 }
 
-.follow_orders h3 {
-    text-align: center;
+.follow_orders h2 {
+  text-align: center;
+}
+
+.follow_order_card {
+    background-color: white;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.follow_order_card p {
+    font-size: 14px;
+    color: black;
+
 }

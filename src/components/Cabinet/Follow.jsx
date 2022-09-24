@@ -30,11 +30,16 @@ const Follow = () => {
     <>
       <Headerlk />
       <div className={styles.follow_orders}>
-        <h3>Задания, на которые вы отозвались</h3>
+        <h2>Задания, на которые вы отозвались</h2>
         <hr />
         <div>
           {user && user.followOrders.map((i) => {
-            return <div key={i._id}>{i.title}</div>;
+            return (
+              <div className={styles.follow_order_card} key={i._id}>
+                <h3>{i.title}</h3>
+                <p>{i.text}</p>
+              </div>
+            )
           })}
         </div>
       </div>
