@@ -10,11 +10,10 @@ const Order = ({ order }) => {
   const handleFollow = (orderId) => {
     dispatch(follow({orderId, id }))   
   }
+  const token = useSelector((state) => state.application.token);
 
   return (
     <>
-
-
     <div className={styles.order}>
 
       <div className={styles.order_title}>
@@ -37,7 +36,7 @@ const Order = ({ order }) => {
       </div>
       <div>
         <div className={styles.order_btn}>
-          <button onClick={() => handleFollow(order._id)} className={styles.order_btn}>Откликнуться</button>
+         {token && <button onClick={() => handleFollow(order._id)} className={styles.order_btn}>Откликнуться</button> }
         </div>
       </div>
     </div>
