@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { follow } from "../../features/orderSlice";
 import styles from "../Order/order.module.css";
+
 const Order = ({ order }) => {
   const id = useSelector((state) => state.application.id)
   const dispatch = useDispatch()
@@ -11,7 +12,11 @@ const Order = ({ order }) => {
   }
 
   return (
+    <>
+
+
     <div className={styles.order}>
+
       <div className={styles.order_title}>
         <h3>{order.title}</h3>
         <div className={styles.order_price}>
@@ -36,6 +41,7 @@ const Order = ({ order }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
