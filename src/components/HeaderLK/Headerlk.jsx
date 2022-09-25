@@ -31,6 +31,11 @@ const Headerlk = () => {
   const onclickCategory = (index) => {
     localStorage.setItem("role",index)
     setActive(index);
+    if(index === 0){
+     return window.location.href = "/cabinet"
+    }
+    window.location.href = "/customer"
+  
   };
   return (
     <div className={styles.header_bg}>
@@ -47,23 +52,9 @@ const Headerlk = () => {
               <div>
                 <Link to="/orders">Задание</Link>
               </div>
+              
             </div>
-            <div className={styles.nav_link_item}>
-              <div className={styles.header_icons}>
-              <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
-              </div>
-              <div>
-              <Link to="/cabinet">о нас</Link>
-              </div>
-            </div>
-            <div className={styles.nav_link_item}>
-              <div className={styles.header_icons}>
-              <ion-icon name="people-outline"></ion-icon>
-              </div>
-              <div>
-                <Link to="/customer">Контакты</Link>
-              </div>
-            </div>
+            
           </div>
           <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
