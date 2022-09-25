@@ -3,14 +3,10 @@
     padding: 15px;
     margin-bottom: 5px;
     border-radius: 5px;
-    border-bottom: 1px solid rgb(0, 102, 255);
+    border-bottom: 1px solid #00b6f3;
     transition: 0.3s;
 }
 
-.order:hover {
-    border-bottom: 1px solid rgb(0, 255, 85);
-    border-radius: 5px;
-}
 
 .order_title{
     display: flex;
@@ -35,11 +31,16 @@
 
 
 .order_btn button{
-    background-color: rgb(0, 102, 255);
+    background-color:#00b6f3;
     border: none;
     padding: 8px;
     font-size: 10px;
     border-radius: 5px;
     color: white;
+    transition: color 0.5s ease-in;
 }
 
+
+.order_btn button:hover{
+    background-color: #0f4;
+}

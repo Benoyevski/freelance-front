@@ -1,266 +1,288 @@
-.order_title{
-    display: flex;
-    justify-content: center;
-    align-self: flex-start;
+.order_title {
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
 }
 
-.orders_block{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+.orders_block {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .order_title h2 {
-    border-bottom: 1px solid #ccc;
-    margin-top: 30px;
-    margin-bottom: 30px;
+  border-bottom: 1px solid #00b6f3;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 
+.ordersList {
+  height: 72.5vh;
+  /* overflow-y: scroll; */
+  overflow-y: scroll;
+  scrollbar-color: #00b6f3;
+}
+
+.ordersList::-webkit-scrollbar {
+  width: 3px; /* ширина всей полосы прокрутки */
+}
+.ordersList::-webkit-scrollbar-track {
+  background: transparent; /* цвет зоны отслеживания */
+}
+.ordersList::-webkit-scrollbar-thumb {
+  background-color: #00b6f3; /* цвет бегунка */
+  border-radius: 10px; /* округлось бегунка */
+  border: 1px solid 00b6f3; /* отступ вокруг бегунка */
 }
 
 .returnBtnClose {
-    background-color: #fff;
-    padding: 2px;
-    border-radius: 5px;
-    border: none;
-    width: 80px;
+  background-color: #fff;
+  padding: 2px;
+  border-radius: 5px;
+  border: none;
+  width: 80px;
 }
 
 .returnBtnOpen {
-    background-color: #fff;
-    margin: auto;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    width: 120px;
+  background-color: #fff;
+  margin: auto;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  width: 120px;
+}
+
+.nav_menu button {
+  margin-top: 10px;
+  transition: 0.1s ease-in;
 }
 
 .nav_menu button:hover {
-    background-color: aqua;
-    color:black;
+  background-color: #00b6f3;
+
+  color: white;
 }
 .search {
-    margin: auto;
-    width: 400px;
+  margin: auto;
+  width: 400px;
 }
+
+.dividerImg {
+  position: absolute;
+  bottom: -50px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  width: 300px;
+}
+
 /* sidebar ---> */
 
-
 .mainContainer {
-   display: flex;
+  display: flex;
 }
-
 
 .sidebar_container {
-    position: relative;
-    width: 250px;
-    height: 100vh;
-    background-color: rgb(21, 21, 41);
-    color: #FFFAFA;
+  position: relative;
+  width: 350px;
+  height: 100vh;
+  background-color: rgb(21, 21, 41);
+  color: #fffafa;
 
-    
-    transition: 0.4s;
+  transition: 0.4s;
 }
-
 
 .sidebar_container_NX {
-    position: relative;
-    width: 85px;
-    height: 100vh;
-    background-color: rgb(21, 21, 41);
-    color: #FFFAFA;
-    
-
-
-    transition: 0.4s;
+  position: relative;
+  width: 85px;
+  height: 100vh;
+  background-color: rgb(21, 21, 41);
+  color: #fffafa;
+  transition: 0.4s;
 }
-
-
-
-
-
-.nav_upper, .nav_heading, .nav_menu, .menu_item {
-    display: grid;
+.sidebar_container_NX .textWorkzilla {
+    display: none;
+}
+.nav_upper,
+.nav_heading,
+.nav_menu,
+.menu_item {
+  display: grid;
 }
 
 .nav_heading {
-    grid-template-columns: 2fr, 1fr;
-    grid-template-rows: 1fr;
-    height: 75px;
+  grid-template-columns: 2fr, 1fr;
+  grid-template-rows: 1fr;
+  height: 75px;
 }
 
 .nav_brand {
-    display: flex;
-    margin-top: 20px;
+  display: flex;
+  margin-top: 20px;
 }
 
 .nav_brand img {
-    padding: 0 10px;
-    width: 50px;
-    height: 40px;
+  padding: 0 10px;
+  width: 50px;
+  height: 30px;
 }
 
 .burger {
-    position: absolute;
-    right: 0;
-    margin: auto -35px;
-    padding: 20px 15px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    background-color:  rgb(21, 21, 41);
-    border: 2px solid #FFFAFA;
-    border-radius: 90px;
-    height: 71px;
-    width: 74px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  margin: auto -30px;
+  padding: 10px 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(21, 21, 41);
+  border: 3px solid #fffafa;
+  border-radius: 90px;
+  height: 61px;
+  width: 64px;
 }
 
 .burger span {
-    display: block;
-    margin-top: 5px;
-    margin-right: 5px;
-    background-color: #fff;
-    border-radius: 15px;
-    height: 4px;
-    width: 30px;
-
-
-    transition: 0.4s;
+  display: block;
+  margin-top: 5px;
+  margin-right: 5px;
+  background-color: #fff;
+  border-radius: 15px;
+  height: 4px;
+  width: 30px;
+  transition: 0.4s;
 }
 
 .burger:hover span {
-    margin: auto;
-} 
-
-.burger_in span:nth-child(1) {
-    width: 25px;
-    transform: translate(0px, 8px) rotate(-30deg);
+  margin: auto;
 }
 
+.burger_in span:nth-child(1) {
+  width: 25px;
+  transform: translate(0px, 8px) rotate(-30deg);
+}
 
 .burger_in span:nth-child(2) {
-    display: none;
+  display: none;
 }
 
 .burger_in span:nth-child(3) {
-    width: 25px;
-    transform: translate(0px, -8px) rotate(30deg);
+  width: 25px;
+  transform: translate(0px, -8px) rotate(30deg);
 }
 
-.burger1  span{
-    margin: auto;
+.burger1 span {
+  margin: auto;
 }
-
-
-
 
 .burger_out:hover span:nth-child(1) {
-    width: 25px;
-    transform: translate(-3px, 8px) rotate(30deg);
+  width: 25px;
+  transform: translate(-3px, 8px) rotate(30deg);
 }
 
-
 .burger_out:hover span:nth-child(2) {
-    display: none;
+  display: none;
 }
 
 .burger_out:hover span:nth-child(3) {
-    width: 25px;
-    transform: translate(-3px, -8px) rotate(-30deg);
+  width: 25px;
+  transform: translate(-3px, -8px) rotate(-30deg);
 }
 
 .link_text {
-    text-decoration: none;
-    font-size: 20px;
-    color: #FFFAFA;
-    margin-top: 10px;
-    margin-left: 15px;
-    font-family: 'PT Sans', sans-serif;
-    font-weight: 400;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fffafa;
+  margin-top: 10px;
+  margin-left: 15px;
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
 }
 
 .text {
-    display: none;
+  display: none;
 }
 
 .img {
-    margin-left: 15px;
-    width: 30px;
-    height: 30px;
-    filter: invert(100%);
+  margin-left: 15px;
+  width: 30px;
+  height: 30px;
+  filter: invert(100%);
 }
 
 .nav_menu {
-    grid-template-rows: repeat(7, 1fr);
-    margin-top: 50px;
+  grid-template-rows: repeat(7, 1fr);
+  margin-top: 50px;
 }
 
 .menu_item {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin: auto 5px;
-    height: 57px;
-    width: 16em;
-    text-decoration: none;
-    color: #FFFAFA;
-    text-transform: uppercase;
-    border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: auto 5px;
+  height: 57px;
+  width: 14.5em;
+  text-decoration: none;
+  color: #fffafa;
+  text-transform: uppercase;
+  border-radius: 10px;
+  transition: 0.4s ease;
 }
 
 .menu_item:hover {
-    background-color: #999;
-    
-  
-    width: 240px;
-    height: 40px; 
-    color: black;
+  background-color: #00b6f3;
+  /* width: 240px;
+    height: 40px;  */
+  height: 57px;
+  width: 14.5em;
+  color: black;
 }
 
 .menu_item_NX {
-    position: relative;
-    display: flex;
-    margin-top: 5px;
-    margin-left: 10px;
-    height: 50px;
-    width: 16em;
-    text-decoration: none;
-    color: #FFFAFA;
-    text-transform: uppercase;
-    border-radius: 10px;
-    width: 60px;
-    padding-top: 7px;
+  position: relative;
+  display: flex;
+  margin: auto 5px;
+  /* margin-top: 5px;
+    margin-left: 10px; */
+  height: 50px;
+  text-decoration: none;
+  color: #fffafa;
+  text-transform: uppercase;
+  border-radius: 10px;
+  width: 60px;
+  /* padding-top: 7px; */
 }
 
 .menu_item_NX:hover {
- background-color: #999;
- padding-top: 7px;
+  background-color: #00b6f3;
+  padding-top: 7px;
 }
-
 
 .tooltip {
-    position: absolute;
-    display: none;
-    left: 74px;
-    bottom: 80%;
-   
+  position: absolute;
+  display: none;
+  left: 74px;
+  bottom: 80%;
 
-    width: auto;
-    padding: 4px 8px;
-    border-radius: 15px 15px 15px 0;
-    white-space: nowrap;
-    border: 2px solid #999;
-    background-color: black;
+  width: auto;
+  padding: 4px 8px;
+  border-radius: 15px 15px 15px 0;
+  white-space: nowrap;
+  border: 2px solid #999;
+  background-color: black;
 }
-.tooltip:hover  {
-    display: block;
+.tooltip:hover {
+  display: block;
 }
-
 
 .str {
-    padding: 0 0 0 10px;
+  padding: 0 0 0 10px;
 }
 
 .menu_item p {
-    padding: 5px 0 0 15px;
+  padding: 5px 0 0 15px;
 }

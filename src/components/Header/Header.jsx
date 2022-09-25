@@ -27,15 +27,15 @@ const Header = () => {
           {
             token ?
             <div className={styles.modalArea}>
-            <Link to="/cabinet" className={styles.area}>Личный кабинет</Link> </div>   :
+            <Link to="/cabinet" className={styles.register}>Личный кабинет</Link> 
+            </div>   :
             <div className={styles.modalField}>
             <div className={styles.register} onClick={() => setActiveLogin(true)} >Войти</div> 
             <span>или</span>
             <div className={styles.register} onClick={() => setActiveAuth(true)}>Зарегистрироваться</div>
             </div>
           }
-          
-           <Link to = "/orders"><button className={styles.btn}>Найти задание</button></Link>
+           <div><Link to = "/orders"><button className={styles.btn}>Найти задание</button></Link></div>
            </div>
            <SignUp activeAuth={activeAuth} setActiveAuth={setActiveAuth} />
             <Login activeLogin={activeLogin} setActiveLogin={setActiveLogin} />

@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-
 import { useEffect } from "react";
 import cn from "classnames";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Order from "../../components/Order/Order";
-
 import { fetchOrders } from "../../features/orderSlice";
 import styles from "../Orderpage/orders.module.css";
 import { fetchCategory } from "../../features/categoryesSlice";
@@ -66,7 +64,7 @@ const OrderPage = () => {
                 alt=""
                 className={styles.img_logo}
               />
-              <h2>Workzilla</h2>
+              <h2 className={styles.textWorkzilla}>Workzilla</h2>
             </div>
             <div className={styles.nav_menu}>
               {category.map((el) => {
@@ -93,7 +91,7 @@ const OrderPage = () => {
                 }
                 onClick={() => setChoice(null)}
               >
-                Все Заказы
+                Заказы
               </button>
             </div>
             <button
@@ -112,7 +110,7 @@ const OrderPage = () => {
         </div>
       </div>
       {loading ? (
-        <div style={{ width: "5%", margin: "auto" }}>
+        <div style={{ width: "20%",height: '70vh', margin: "auto", display: 'flex', justifyContent: 'center', alignItems: "center", flexDirection: "column" }}>
           <MagnifyingGlass
             visible={true}
             height="100"
@@ -155,7 +153,7 @@ const OrderPage = () => {
               {!filteredByCategory.length && (
                 <div>Пока никто не добавлял...</div>
               )}
-              <div>
+              <div className={styles.ordersList}>
                 {filteredBySearchAndCategory.map((order) => {
                   return <Order key={order._id} order={order} />;
                 })}
@@ -164,9 +162,12 @@ const OrderPage = () => {
           </div>
         </div>
       )}
+      <div className={styles.dividerImg}> <div><img src='https://work-zilla.com/pic-characters.7fb6b3a9e51fa19bd08b.svg' alt='workzilla' /></div></div>
     </div>
     </>
   );
 };
 
 export default OrderPage;
+
+
