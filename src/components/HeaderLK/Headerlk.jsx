@@ -53,7 +53,7 @@ const Headerlk = () => {
               <ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon>
               </div>
               <div>
-              <Link to="/works">о нас</Link>
+              <Link to="/cabinet">о нас</Link>
               </div>
             </div>
             <div className={styles.nav_link_item}>
@@ -61,7 +61,7 @@ const Headerlk = () => {
               <ion-icon name="people-outline"></ion-icon>
               </div>
               <div>
-                <Link to="/works">Контакты</Link>
+                <Link to="/customer">Контакты</Link>
               </div>
             </div>
           </div>

@@ -1,0 +1,123 @@
+.customer_page {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .freelancers {
+    position: relative;
+  width: 25%;
+  padding: 10px;
+  padding-top: 47px;
+  box-shadow: 0px 0px 22px 9px rgba(66, 92, 113, 0.11) inset;
+  }
+
+  .freelancers h3 {
+    border-bottom: 1px solid rgb(170, 167, 167);
+  }
+
+.follow_orders {
+    width: 100%;
+    min-height: 500px;
+    margin: 30px auto;
+    padding: 10px;
+    background-color: #f4f4f4;
+  }
+  
+.freelancer {
+    border: 1px solid lightgray;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.freelancer button {
+    background-color:#06bc24;
+    color: white;
+    padding: 2px 5px;
+}
+
+
+  .follow_orders h2 {
+    width: 70%;
+    text-align: center;
+    margin: 0 15px;
+
+  }
+  
+  .follow_order_card {
+    width: 70%;
+    background-color: white;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    min-height: 90px;
+  }
+  
+  .follow_order_card:hover {
+    box-shadow: 0 5px 30px 0 rgba(28, 135, 161, 0.2);
+    transform: scale(1.01);
+    transition: 0.2s;
+  }
+  
+  .follow_order_card p {
+    font-size: 14px;
+    color: black;
+    width: 70%;
+  }
+  
+  .text_and_btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .headOrder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .headOrder_imgs {
+    display: flex;
+    align-items: center;
+  }
+  
+  .headOrder_imgs img {
+    margin-right: 5px;
+  }
+  
+  .headOrder_imgs .watch {
+    width: 70px;
+    font-size: 16px;
+    color: black;
+  }
+  
+  .headOrder_imgs .money {
+    width: 100px;
+    font-size: 16px;
+    color: black;
+  }
+  
+  .watch img {
+    max-width: 22px;
+  }
+  
+  .money img {
+    height: 25px;
+  }
+  
+  .watch,
+  .money {
+    display: flex;
+    align-items: center;
+  }
+  
+  .remove_btn {
+    color: white;
+    border: none;
+    background-color: #13c1fe;
+    height: 30px;
+    padding: 5px 10px;
+  }
+  
+  

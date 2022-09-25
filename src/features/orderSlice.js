@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   orders: [],
-  follow: [],
   role: localStorage.getItem("role"),
   loading: false,
 };
@@ -17,10 +16,9 @@ export const follow = createAsyncThunk(
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify( {user: id}),
+        body: JSON.stringify({ user: id }),
       });
       const data = await res.json();
-
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -32,6 +30,7 @@ export const unFollow = createAsyncThunk(
   "patch/orderFollow",
   async ({ orderId, id }, thunkAPI) => {
     try {
+
       const res = await fetch(`http://localhost:3030/unFollow/${orderId}`, {
         method: "PATCH",
         headers: {
@@ -46,6 +45,26 @@ export const unFollow = createAsyncThunk(
     }
   }
 );
+
+export const acceptFollow = createAsyncThunk('patch/orderFollow', 
+async ({ orderId, userId}, thunkAPI) => {
+  try {
+    console.log(orderId, 'asdasdasdsa');
+    const res = await fetch(`http://localhost:3030/accept/${orderId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ user: userId }),
+    });
+    
+    const data = await res.json()
+    return data
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error);
+    
+  }
+})
 
 export const fetchOrders = createAsyncThunk(
   "fetch/orders",
@@ -101,27 +120,30 @@ const orderSlice = createSlice({
     builder
       .addCase(fetchOrders.fulfilled, (state, action) => {
         state.orders = action.payload;
-        state.loading = false
+        state.loading = false;
       })
       .addCase(fetchOrders.pending, (state, action) => {
-        state.loading = true
+        state.loading = true;
       })
       .addCase(addOrder.fulfilled, (state, action) => {
         state.orders.push(action.payload);
+        state.loading = false;
       })
       .addCase(follow.fulfilled, (state, action) => {
+        state.loading = false;
         state.orders = state.orders.map((item) => {
           if (item._id === action.payload.order._id) {
             item.freelancers.push(action.payload.user);
           }
-          return item
+          return item;
         });
       })
       .addCase(unFollow.fulfilled, (state, action) => {
+        state.loading = false;
         state.orders = state.orders.filter((item) => {
-          return item.freelancers._id !== action.payload.user._id
-        })
-      })
+          return item.freelancers._id !== action.payload.user._id;
+        });
+      });
   },
 });
 
