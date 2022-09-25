@@ -9,7 +9,7 @@ const initialState = {
 
 export const follow = createAsyncThunk(
   "patch/order",
-  async ({ orderId, id }, thunkAPI) => {
+  async ({ id, orderId }, thunkAPI) => {
     try {
       const res = await fetch(`http://localhost:3030/followOrder/${orderId}`, {
         method: "PATCH",
@@ -30,6 +30,7 @@ export const unFollow = createAsyncThunk(
   "patch/orderFollow",
   async ({ orderId, id }, thunkAPI) => {
     try {
+
       const res = await fetch(`http://localhost:3030/unFollow/${orderId}`, {
         method: "PATCH",
         headers: {
@@ -44,6 +45,26 @@ export const unFollow = createAsyncThunk(
     }
   }
 );
+
+export const acceptFollow = createAsyncThunk('patch/orderFollow', 
+async ({ orderId, userId}, thunkAPI) => {
+  try {
+    console.log(orderId, 'asdasdasdsa');
+    const res = await fetch(`http://localhost:3030/accept/${orderId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ user: userId }),
+    });
+    
+    const data = await res.json()
+    return data
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error);
+    
+  }
+})
 
 export const fetchOrders = createAsyncThunk(
   "fetch/orders",
@@ -91,49 +112,39 @@ export const addOrder = createAsyncThunk(
   }
 );
 
-const OrderSclice = createSlice({
-  name: "movie",
+const orderSlice = createSlice({
+  name: "order",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchOrders.fulfilled, (state, action) => {
         state.orders = action.payload;
-        state.loading = false
+        state.loading = false;
       })
       .addCase(fetchOrders.pending, (state, action) => {
-        state.loading = true
+        state.loading = true;
       })
       .addCase(addOrder.fulfilled, (state, action) => {
         state.orders.push(action.payload);
+        state.loading = false;
       })
-      //  .addCase(follow.fulfilled, (state, action) => {
-      //    state.orders.map((item) => {
-      //     if (item._id === action.payload._id) {
-      //      item.freelancers.push(action.payload)
-      //     }
-      //     return item
-      //   });
-      //  })
       .addCase(follow.fulfilled, (state, action) => {
+        state.loading = false;
         state.orders = state.orders.map((item) => {
-          if (item._id === action.payload._id) {
-            item.freelancers.push(action.payload);
+          if (item._id === action.payload.order._id) {
+            item.freelancers.push(action.payload.user);
           }
           return item;
         });
       })
       .addCase(unFollow.fulfilled, (state, action) => {
-        state.orders = state.orders.map((item) => {
-          if (item._id === action.payload._id) {
-            item.freelancers.filter((user) => {
-              return user !== action.payload._id
-            });
-          }
-          return item;
+        state.loading = false;
+        state.orders = state.orders.filter((item) => {
+          return item.freelancers._id !== action.payload.user._id;
         });
-      })
+      });
   },
 });
 
-export default OrderSclice.reducer;
+export default orderSlice.reducer;

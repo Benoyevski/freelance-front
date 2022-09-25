@@ -23,8 +23,8 @@ const Follow = () => {
   const loading = useSelector((state) => state.user.load);
 
   const handleUnFollow = (orderId) => {
-    dispatch(unFollow({orderId, id}))
-  }
+    dispatch(unFollow({ orderId, id }));
+  };
 
   if (loading) {
     return <div style={{ width: "20%",height: '70vh', margin: "auto", display: 'flex', justifyContent: 'center', alignItems: "center", flexDirection: "column" }}>
@@ -67,7 +67,12 @@ const Follow = () => {
                   </div>
                   <div className={styles.text_and_btn}>
                     <p>{i.text}</p>
-                    <button onClick={() => handleUnFollow(i._id)} className={styles.remove_btn}>Удалить</button>
+                    <button
+                      onClick={() => handleUnFollow(i._id)}
+                      className={styles.remove_btn}
+                    >
+                      Удалить
+                    </button>
                   </div>
                 </div>
               );

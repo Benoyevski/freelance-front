@@ -10,6 +10,7 @@ import { fetchCategory } from "../../features/categoryesSlice";
 import { MagnifyingGlass } from "react-loader-spinner";
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import { Search } from "@mui/icons-material";
+import Headerlk from "../../components/HeaderLK/Headerlk";
 
 const OrderPage = () => {
   const dispatch = useDispatch();
@@ -47,7 +48,9 @@ const OrderPage = () => {
   };
 
   return (
+    <>      <Headerlk/>
     <div className={styles.mainContainer}>
+
       <div
         className={
           isExpendend ? styles.sidebar_container : styles.sidebar_container_NX
@@ -161,6 +164,7 @@ const OrderPage = () => {
       )}
       <div className={styles.dividerImg}> <div><img src='https://work-zilla.com/pic-characters.7fb6b3a9e51fa19bd08b.svg' alt='workzilla' /></div></div>
     </div>
+    </>
   );
 };
 
