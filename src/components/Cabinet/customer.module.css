@@ -24,7 +24,10 @@
   }
   
 .freelancer {
-    border: 1px solid lightgray;
+  color: white;
+    border: none;
+    background-color:rgb(11, 55, 82);
+    border-radius: 8px;
     margin-top: 10px;
     padding: 5px;
 }

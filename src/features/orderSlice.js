@@ -115,7 +115,18 @@ export const addOrder = createAsyncThunk(
 const orderSlice = createSlice({
   name: "order",
   initialState,
-  reducers: {},
+  reducers: {
+    acceptUser: (state,action)=>{
+      state.orders = state.orders.map((item)=>{
+        if(item._id === action.payload.orderId){
+          item.accepted.push(action.payload.user)
+          item.freelancers = []
+        }
+        return item
+
+      })
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchOrders.fulfilled, (state, action) => {
@@ -140,12 +151,14 @@ const orderSlice = createSlice({
       })
       .addCase(unFollow.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(state.application)
+        
         state.orders = state.orders.filter((item) => {
           return item.freelancers._id !== action.payload.user._id;
         });
       });
   },
 });
+
+export const {acceptUser} = orderSlice.actions
 
 export default orderSlice.reducer;

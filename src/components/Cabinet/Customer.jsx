@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { acceptFollow, fetchOrders, unFollow } from "../../features/orderSlice";
-import { fetchUsers } from "../../features/userSlice";
+import {  fetchUsers } from "../../features/userSlice";
+import { acceptUser } from "../../features/orderSlice";
 import styles from "../Cabinet/customer.module.css";
 import Headerlk from "../HeaderLK/Headerlk";
+
 import { MagnifyingGlass } from "react-loader-spinner"
 
+
 const Customer = () => {
+  
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const [modalFreelancers, setModalFreelancers] = useState(null);
@@ -32,9 +36,9 @@ const Customer = () => {
     setModal(false);
   };
 
-  const handleAccept = (userId, orderId) => {
-    dispatch(acceptFollow({userId, orderId}))
-    
+  const handleAccept = (userId,user, orderId) => {
+    dispatch(acceptFollow({ userId, orderId }));
+    dispatch(acceptUser({orderId,user}))
   };
 
   if (loading) {
@@ -69,7 +73,13 @@ const Customer = () => {
                       <div key={item._id} className={styles.freelancer}>
                         <h4>{item.login}</h4>
                         <div>rating ****</div>
-                        <button onClick={() => handleAccept(item._id, modalFreelancers._id)}>Принять</button>
+                        <button
+                          onClick={() =>
+                            handleAccept(item._id,item, modalFreelancers._id)
+                          }
+                        >
+                          Принять
+                        </button>
                       </div>
                     );
                   })}
@@ -109,7 +119,14 @@ const Customer = () => {
                     <div className={styles.text_and_btn}>
                       <p>{i.text}</p>
                     </div>
-                    <div>{i.accepted}</div>
+                    <div>
+                     {i.accepted.length < 1 ? " Пока никто не выполняет задание"
+                      :
+                      i.accepted.map((item) => {
+
+                        return `Выполняет: ${item.login}`;
+                      })}
+                    </div>
                   </div>
                 );
             })}
