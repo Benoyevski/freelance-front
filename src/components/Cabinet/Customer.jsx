@@ -48,7 +48,7 @@ const Customer = () => {
       <div className={styles.customer_page}>
         <div className={styles.freelancers}>
           {modal ? (
-            <div className={styles.modal_list}>
+            <div onClick={handleCloseModal} className={styles.modal_list}>
               <h3>Откликнулись</h3>
               {modalFreelancers === null ? (
                 <p>Пока никто не отозвался</p>
