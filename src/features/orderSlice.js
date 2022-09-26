@@ -121,6 +121,7 @@ const orderSlice = createSlice({
         if(item._id === action.payload.orderId){
           item.accepted.push(action.payload.user)
           item.freelancers = []
+
         }
         return item
 
