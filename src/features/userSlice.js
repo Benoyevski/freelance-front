@@ -7,6 +7,26 @@ const initialState = {
   error:null
 };
 
+
+export const chanprice = createAsyncThunk(
+  "patch/price",
+  async ({ id, userId,price }, thunkAPI) => {
+    try {
+      console.log(price)
+      const res = await fetch(`http://localhost:3030/users/changeprice/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user: userId,price }),
+      });
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
 export const fetchUsers = createAsyncThunk("fetch/user", async (_, thunkAPI) => {
   try {
     const res = await fetch("http://localhost:3030/users")
@@ -27,7 +47,9 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-   
+  
+
+    
 
     deleteorders: (state,action)=>{
     state.users = state.users.map((item)=>{
@@ -66,7 +88,7 @@ const userSlice = createSlice({
       })      
   },
 });
-
+export const {changeprice} = userSlice.actions
 export const {deleteorders} = userSlice.actions
 export const { followFront} = userSlice.actions
 export default userSlice.reducer;

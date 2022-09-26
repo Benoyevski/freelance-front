@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { acceptFollow, fetchOrders, unFollow } from "../../features/orderSlice";
-import {  fetchUsers } from "../../features/userSlice";
+import { fetchUsers } from "../../features/userSlice";
+import { chanprice } from "../../features/userSlice";
 import { acceptUser } from "../../features/orderSlice";
 import styles from "../Cabinet/customer.module.css";
 import Headerlk from "../HeaderLK/Headerlk";
 
+import { changeprice } from "../../features/userSlice";
+import Order from "../Order/Order";
+
+
 import { MagnifyingGlass } from "react-loader-spinner"
 
 
+
 const Customer = () => {
+  const [price,setPrice] = useState(0)
   
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
@@ -29,6 +36,7 @@ const Customer = () => {
   const loading = useSelector((state) => state.user.load);
 
   const handleOpenModal = (i) => {
+    setPrice(i.price)
     setModal(true);
     setModalFreelancers(i);
   };
@@ -37,8 +45,11 @@ const Customer = () => {
   };
 
   const handleAccept = (userId,user, orderId) => {
+    dispatch(chanprice({userId,id,price}))
     dispatch(acceptFollow({ userId, orderId }));
     dispatch(acceptUser({orderId,user}))
+    dispatch(changeprice({price,id,userId}))
+   
   };
 
   if (loading) {
@@ -69,6 +80,7 @@ const Customer = () => {
               ) : (
                 <div>
                   {modalFreelancers.freelancers.map((item) => {
+                    console.log(item)
                     return (
                       <div key={item._id} className={styles.freelancer}>
                         <h4>{item.login}</h4>
