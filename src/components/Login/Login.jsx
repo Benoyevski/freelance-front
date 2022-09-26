@@ -3,6 +3,9 @@ import { useDispatch } from "react-redux";
 import { loginThunk } from "../../features/applicationSlice";
 import styles from './login.module.css'
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Login = ({activeLogin, setActiveLogin}) => {
 
     const dispatch = useDispatch()
@@ -10,10 +13,39 @@ const Login = ({activeLogin, setActiveLogin}) => {
     const [password, setPassword] = useState('')
     
 
+    const Toaster = (text) => {
+      toast.error(text, {
+        position: "top-center",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    };
+
+    const handleValidation = ({ login, password }) => {
+      if (password === "") {
+        Toaster("Пароль - обьязательное поле!");
+        return false;
+      } else if (login === '') {
+        Toaster("Логин - обьязательное поле!");
+        return false;
+      } else if (password.length < 8) {
+        Toaster("Пароль не должен быть меньше 8 символов!");
+        return false;
+      } 
+      return true
+    };
+
     const handleLogin = (e,{login, password}) => {
-      dispatch(loginThunk({login, password}))
-      setLogin('')
-      setPassword('')
+      e.preventDefault();
+      if(handleValidation) {
+        dispatch(loginThunk({login, password}))
+        setLogin('')
+        setPassword('')
+      }
     }
 
     const handleForm = (e) => {
@@ -22,6 +54,8 @@ const Login = ({activeLogin, setActiveLogin}) => {
     }
 
   return (
+    <>
+    <ToastContainer />
     <div
       className={activeLogin ? styles.nomodal : styles.modal}
       onClick={() => setActiveLogin(false)}
@@ -47,6 +81,7 @@ const Login = ({activeLogin, setActiveLogin}) => {
         </button>
       </form>
     </div>
+    </>
   );
 };
 
