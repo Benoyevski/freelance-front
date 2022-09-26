@@ -16,7 +16,11 @@ import Logout from '@mui/icons-material/Logout';
 import { useState } from "react";
 
 import logo from "./logo.png";
+import { useSelector } from "react-redux";
 const Headerlk = () => {
+  const id = useSelector((state)=> state.application.id)
+  const users = useSelector((state)=> state.user.users)
+
   const arr = ["Исполнитель", "Заказчик"]
   const [active, setActive] = useState(Number(localStorage.getItem("role")));
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -137,7 +141,11 @@ const Headerlk = () => {
               <ion-icon name="notifications-outline"></ion-icon>
             </div>
             <div>
-              <h4>900</h4>
+             {users.map((item)=>{
+              if(item._id === id){
+                return <h4>{item.wallet}</h4>
+              }
+             })}
             </div>
             <div>
               <Link to = "/tasks"><button>Дать Задание</button></Link>
