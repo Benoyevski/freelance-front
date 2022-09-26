@@ -12,7 +12,7 @@ export const chanprice = createAsyncThunk(
   "patch/price",
   async ({ id, userId,price }, thunkAPI) => {
     try {
-      console.log(price)
+     
       const res = await fetch(`http://localhost:3030/users/changeprice/${id}`, {
         method: "PATCH",
         headers: {
@@ -21,7 +21,7 @@ export const chanprice = createAsyncThunk(
         body: JSON.stringify({ user: userId,price }),
       });
       const data = await res.json();
-      return data;
+      return {id, userId,price};
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -73,6 +73,19 @@ const userSlice = createSlice({
     
   extraReducers: (builder) => {
     builder
+    .addCase(chanprice.fulfilled, (state, action) => {
+     state.users = state.users.map((item)=>{
+      if(item._id === action.payload.id){
+        return{
+          ...item,
+          wallet: Number(item.wallet) - Number(action.payload.price)
+        }
+      }
+      return item
+     })
+       
+    })
+
     .addCase(fetchUsers.rejected, (state, action) => {
      
       state.error = action.payload
