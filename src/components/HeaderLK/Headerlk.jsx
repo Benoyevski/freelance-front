@@ -24,6 +24,12 @@ const Headerlk = () => {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  const handleExit = ()=>{
+    localStorage.clear()
+    window.location.reload()
+    window.location.href = "/"
+  }
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -122,7 +128,7 @@ const Headerlk = () => {
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          Logout
+         <div onClick={()=> handleExit()}> Logout</div>
         </MenuItem>
       </Menu>
     </React.Fragment>
@@ -131,7 +137,7 @@ const Headerlk = () => {
               <ion-icon name="notifications-outline"></ion-icon>
             </div>
             <div>
-              <h4>300</h4>
+              <h4>900</h4>
             </div>
             <div>
               <Link to = "/tasks"><button>Дать Задание</button></Link>

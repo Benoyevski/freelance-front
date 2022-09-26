@@ -6,6 +6,7 @@ import styles from "../Cabinet/customer.module.css";
 import Headerlk from "../HeaderLK/Headerlk";
 import Order from "../Order/Order";
 
+
 const Customer = () => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
@@ -14,7 +15,7 @@ const Customer = () => {
   useEffect(() => {
     dispatch(fetchOrders());
     dispatch(fetchUsers());
-  }, []);
+  }, [dispatch]);
 
   const orders = useSelector((state) => state.order.orders);
 
@@ -34,6 +35,7 @@ const Customer = () => {
 
   const handleAccept = (userId, orderId) => {
     dispatch(acceptFollow({userId, orderId}))
+    
   };
 
   if (loading) {
