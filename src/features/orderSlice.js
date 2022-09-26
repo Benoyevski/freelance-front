@@ -120,6 +120,7 @@ const orderSlice = createSlice({
       state.orders = state.orders.map((item)=>{
         if(item._id === action.payload.orderId){
           item.accepted.push(action.payload.user)
+          item.freelancers = []
         }
         return item
 
