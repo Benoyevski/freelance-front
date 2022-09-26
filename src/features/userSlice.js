@@ -26,7 +26,18 @@ export const fetchUsers = createAsyncThunk("fetch/user", async (_, thunkAPI) => 
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    deleteorders: (state,action)=>{
+    state.users = state.users.map((item)=>{
+      if(item._id === action.payload.id){
+        return{
+          ...item,
+          followOrders: item.followOrders.filter((i)=> i._id !== action.payload.orderId)
+        }
+      }
+      return item
+    })
+    }  },
   extraReducers: (builder) => {
     builder
     .addCase(fetchUsers.rejected, (state, action) => {
@@ -44,5 +55,7 @@ const userSlice = createSlice({
       })      
   },
 });
+
+export const {deleteorders} = userSlice.actions
 
 export default userSlice.reducer;

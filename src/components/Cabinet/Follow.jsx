@@ -5,14 +5,14 @@ import { fetchUsers } from "../../features/userSlice";
 import styles from "../Cabinet/follow.module.css";
 import Headerlk from "../HeaderLK/Headerlk";
 import { MagnifyingGlass } from "react-loader-spinner"
-
+import { deleteorders } from "../../features/userSlice";
 const Follow = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchOrders());
     dispatch(fetchUsers());
-  }, []);
+  }, [dispatch]);
 
   const orders = useSelector((state) => state.order.orders);
 
@@ -24,6 +24,7 @@ const Follow = () => {
 
   const handleUnFollow = (orderId) => {
     dispatch(unFollow({ orderId, id }));
+    dispatch(deleteorders({orderId,id}))
   };
 
   if (loading) {
