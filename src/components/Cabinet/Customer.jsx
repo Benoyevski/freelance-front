@@ -6,7 +6,6 @@ import styles from "../Cabinet/customer.module.css";
 import Headerlk from "../HeaderLK/Headerlk";
 import Order from "../Order/Order";
 
-
 const Customer = () => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
@@ -34,8 +33,7 @@ const Customer = () => {
   };
 
   const handleAccept = (userId, orderId) => {
-    dispatch(acceptFollow({userId, orderId}))
-    
+    dispatch(acceptFollow({ userId, orderId }));
   };
 
   if (loading) {
@@ -58,7 +56,13 @@ const Customer = () => {
                       <div key={item._id} className={styles.freelancer}>
                         <h4>{item.login}</h4>
                         <div>rating ****</div>
-                        <button onClick={() => handleAccept(item._id, modalFreelancers._id)}>Принять</button>
+                        <button
+                          onClick={() =>
+                            handleAccept(item._id, modalFreelancers._id)
+                          }
+                        >
+                          Принять
+                        </button>
                       </div>
                     );
                   })}
@@ -98,7 +102,14 @@ const Customer = () => {
                     <div className={styles.text_and_btn}>
                       <p>{i.text}</p>
                     </div>
-                    <div>{}</div>
+                    <div>
+                     {i.accepted.length < 1 ? " Пока никто не выполняет задание"
+                      :
+                      i.accepted.map((item) => {
+
+                        return `Выполняет: ${item.login}`;
+                      })}
+                    </div>
                   </div>
                 );
             })}
