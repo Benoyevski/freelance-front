@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import styles from "../Mainpage/mainPage.module.css";
 const MainPage = () => {
@@ -13,10 +14,10 @@ const MainPage = () => {
             </h1>
             <div className={styles.btns}>
               <div className={styles.find_btn}>
-                <p>Найти исполнителя</p>
+                <Link className={styles.links} to='tasks'><p>Найти исполнителя</p></Link>
               </div>
               <div className={styles.become_btn}>
-                <p>Стать исполнителем</p>
+              <Link className={styles.links} to='orders'><p>Стать исполнителем</p></Link>
               </div>
             </div>
           </div>
