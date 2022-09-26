@@ -10,9 +10,9 @@ import { addOrder } from "../../features/orderSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Headerlk from "../HeaderLK/Headerlk";
 import { fetchCategory } from "../../features/categoryesSlice";
+import imageWorkzilla from '../../public/work-order.png'
 const Task = () => {
   
-  const disptach = useDispatch();
 
   const category = useSelector((state) => state.category.category);
   const [categoryId, setCategoryId] = React.useState("");
@@ -46,7 +46,11 @@ const Task = () => {
   return (
     <>
       <Headerlk />
-      <div className="container">
+      
+      <div className={styles.container}>
+      <div className={styles.imageDiv}>
+        <img src={imageWorkzilla} alt='workzilla'/>
+      </div>
         <h2>Создание задания</h2>
         <div className={styles.task_content}>
           <div className={styles.task_location}>

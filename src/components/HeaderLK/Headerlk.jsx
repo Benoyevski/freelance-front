@@ -148,7 +148,7 @@ const Headerlk = () => {
              })}
             </div>
             <div>
-              <Link to = "/tasks"><button>Дать Задание</button></Link>
+              <Link to = "/tasks"><button>Создать задание</button></Link>
             </div>
           </div>
         </div>
