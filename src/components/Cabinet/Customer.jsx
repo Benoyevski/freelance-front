@@ -98,7 +98,7 @@ const Customer = () => {
                     <div className={styles.text_and_btn}>
                       <p>{i.text}</p>
                     </div>
-                    <div>{i.accepted}</div>
+                    <div>{}</div>
                   </div>
                 );
             })}

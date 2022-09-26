@@ -1,18 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { follow } from "../../features/orderSlice";
 import styles from "../Order/order.module.css";
+import { fetchUsers, followFront } from "../../features/userSlice";
 
 const Order = ({ order }) => {
+  
   const id = useSelector((state) => state.application.id);
   const dispatch = useDispatch();
+
+  useEffect(()=> {
+    dispatch(fetchUsers())
+  },[])
   const user = useSelector((state) =>
     state.user.users.find((item) => item._id === id)
   );
   const handleFollow = (orderId) => {
     dispatch(follow({ id, orderId }));
+    dispatch(followFront({ id, order }));
   };
   const token = useSelector((state) => state.application.token);
+
+
 
   return (
     <>
