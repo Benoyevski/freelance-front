@@ -48,7 +48,7 @@ const Customer = () => {
       <div className={styles.customer_page}>
         <div className={styles.freelancers}>
           {modal ? (
-            <div className={styles.modal_list} onClick={handleCloseModal}>
+            <div className={styles.modal_list}>
               <h3>Откликнулись</h3>
               {modalFreelancers === null ? (
                 <p>Пока никто не отозвался</p>
@@ -58,7 +58,7 @@ const Customer = () => {
                     return (
                       <div key={item._id} className={styles.freelancer}>
                         <h4>{item.login}</h4>
-                        <div>rating ****</div>
+                        <div className={styles.rating}>★★★★★</div>
                         <button
                           onClick={() =>
                             handleAccept(item._id,item, modalFreelancers._id)
@@ -105,12 +105,12 @@ const Customer = () => {
                     <div className={styles.text_and_btn}>
                       <p>{i.text}</p>
                     </div>
-                    <div>
+                    <div className={styles.accepted_info}>
                      {i.accepted.length < 1 ? " Пока никто не выполняет задание"
                       :
                       i.accepted.map((item) => {
 
-                        return `Выполняет: ${item.login}`;
+                        return <p>Выполняет: <h4>{item.login}</h4> </p>;
                       })}
                     </div>
                   </div>
