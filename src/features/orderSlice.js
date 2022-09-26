@@ -140,7 +140,7 @@ const orderSlice = createSlice({
       })
       .addCase(unFollow.fulfilled, (state, action) => {
         state.loading = false;
-        console.log(state.application)
+        
         state.orders = state.orders.filter((item) => {
           return item.freelancers._id !== action.payload.user._id;
         });
