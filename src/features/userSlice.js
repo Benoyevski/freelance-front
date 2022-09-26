@@ -27,6 +27,8 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+   
+
     deleteorders: (state,action)=>{
     state.users = state.users.map((item)=>{
       if(item._id === action.payload.id){
@@ -66,5 +68,5 @@ const userSlice = createSlice({
 });
 
 export const {deleteorders} = userSlice.actions
-export const { followFront } = userSlice.actions
+export const { followFront} = userSlice.actions
 export default userSlice.reducer;
