@@ -1,26 +1,24 @@
-# Сайт каталог с рейтингами ресторанов города Грозного
-
+# Клон сайта для фриланса Workzilla
 <p> Это групповой проект, выполненный студентами школы программирования <a href="https://intocode.ru/" target="_blank">Intocode</a></p>
 
 ## Функционал сайта
 
-- Авторизация
-- Просмотр ресторанов на карте
-- Просмотр ресторанов с фото, рейтингом и адресом
-- Фильтрация ресторанов по типу(ресторан, кафе, фастфуд)
-- Фильтрация по среднему чеку
-- Добавление отзыва с оценкой
-- Просмотр каждого ресторана для просмотра информации, фотографий и меню
-- Добавление и удаление ресторанов в избранное
-- Добавление аватарки пользователем
-- Общий ЧАТ в реальном времени на соккетах
+- Авторизация 
+- Роль зачазчика и иполнителя
+- Просмотр всех заданий
+- Отклик на задания и удаление отклика
+- Добавление задания
+- Принять отклик на свое задание
+- Просмотр добавленных и откликнувшихся заданий
+- Сортировка заданий по категориям
+
 
 ## Несколько скринов 
-![Screenshot 1](https://user-images.githubusercontent.com/105605980/195598552-fec6f6a1-92dd-4c9a-a590-761d8c20ab16.jpeg)
-![Screenshot 2](https://user-images.githubusercontent.com/105605980/195598577-d38a773f-f129-4902-a91d-dd98a12a4df0.jpeg)
-![Screenshot 3](https://user-images.githubusercontent.com/105605980/195598584-1c1d7e05-39f0-4cb8-b465-1642c1f589c1.jpeg)
-![Screenshot 4](https://user-images.githubusercontent.com/105605980/195598590-0a304411-2c9b-412c-bd85-b6c5f8af5722.jpeg)
-
+![freelance1](https://user-images.githubusercontent.com/105605980/195789117-a6a4acf3-e8fd-44c9-83c2-5daa0162378b.jpeg)
+![freelance2](https://user-images.githubusercontent.com/105605980/195789135-86cff53d-b815-42d7-b87a-8882cc022bb4.jpeg)
+![freelance3](https://user-images.githubusercontent.com/105605980/195789150-ad8058d7-c42f-4c53-aa90-45563ad607a2.jpeg)
+![freelance4](https://user-images.githubusercontent.com/105605980/195789157-89c800e9-71b4-4e3e-944c-2d17dcdf9c31.jpeg)
+![freelance](https://user-images.githubusercontent.com/105605980/195789172-40079db6-ac11-4688-92e2-5e87620535b5.jpeg)
 
 ## Запуск проекта
 
@@ -60,8 +58,8 @@ npm run dev
 </h3>
 
 <h3>
-  <a href="https://github.com/DjibrilSS">
-    <img alt="Sadulaev" src="https://img.shields.io/badge/-Djabrail_Sadulaev-black?style=for-the-badge&logo=github&logoColor=white" />
+  <a href="https://github.com/Bugazov">
+    <img alt="Bugazov" src="https://img.shields.io/badge/-Islam_Bugazov-black?style=for-the-badge&logo=github&logoColor=white" />
   </a>
 </h3>
 
@@ -72,28 +70,21 @@ npm run dev
 </h3>
 
 <h3>
-  <a href="https://github.com/GooA-NA">
-    <img alt="Gudeshev" src="https://img.shields.io/badge/-Abdul_Nasir_Gudeshev-black?style=for-the-badge&logo=github&logoColor=white" />
+  <a href="https://github.com/DerWaldgang">
+    <img alt="Makhaev" src="https://img.shields.io/badge/-Salambek_Makhaev-black?style=for-the-badge&logo=github&logoColor=white" />
   </a>
 </h3>
-
-<h3>
-  <a href="https://github.com/bon-cy">
-    <img alt="Nikerhoev" src="https://img.shields.io/badge/-Islam_Nikerhoev-black?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-</h3>
-
-
 
 ### В этом проекте я выполнял следующие задачи:
 
 - [x] Создать react приложение
 - [x] Организовать роутинг-маршрутизация внутри проекта
 - [x] Создание и контроль веток git
-- [x] Сделал Header с логотипом и кнопками
-- [x] Сверстал блок с картинкой и инпутом под хедером
-- [x] Сделал чат в реальном времени
-- [x] Сверстал страницу личного кабинета и сделал навигацию в ней
+- [x] Верстка главной страницы, кроме футера
+- [x] Верстка карточки с кнопкой отклика
+- [x] Верстка страницы с добавленными заданиями в личном кабинете
+- [x] Прописывал логику отклика на задание и принятие отклика заказчиком на бэке и фронте
+- [x] Функционал отклика на задание, удаление отклика с задания, принятие отклика заказчиком
 
 
 ---
@@ -108,20 +99,18 @@ npm run dev
 - redux-toolkit
 - prettier
 - react-loader-spinner
+- react toastify
 - prop-types
-- axios 
-- react-scroll-to-bottom
-- timeago.js
-- socket.io-client
+- classnames
 - bcrypt
 - cors
 - dotenv
 - express
 - mongoose
 - morgan
-- multer
 - jsonwebtoken
 - nodemon
+- react icons
 
 ---
 
@@ -129,7 +118,6 @@ npm run dev
 
 - redux, redux-toolkit - чтобы создавать асинхронные экшены
 - react-router-dom - для роутинга
-- react-loader-spinner - для прелоадеров
-- socket.io - для создания чата
-- axios - для запросов в бд в чате
-- timeago.js - для вывода времени сообщения в чате
+- 
+
+
