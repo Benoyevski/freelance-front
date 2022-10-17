@@ -4,104 +4,101 @@ const initialState = {
   users: [],
   favorite: [],
   load: false,
-  error:null
+  error: null,
 };
-
 
 export const chanprice = createAsyncThunk(
   "patch/price",
-  async ({ id, userId,price }, thunkAPI) => {
+  async ({ id, userId, price }, thunkAPI) => {
     try {
-     
       const res = await fetch(`http://localhost:3030/users/changeprice/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ user: userId,price }),
+        body: JSON.stringify({ user: userId, price }),
       });
       const data = await res.json();
-      return {id, userId,price};
+      return { id, userId, price };
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
   }
 );
-export const fetchUsers = createAsyncThunk("fetch/user", async (_, thunkAPI) => {
-  try {
-    const res = await fetch("http://localhost:3030/users")
+export const fetchUsers = createAsyncThunk(
+  "fetch/user",
+  async (_, thunkAPI) => {
+    try {
+      const res = await fetch("http://localhost:3030/users");
 
-    const data = await res.json();
-    if(data.error){
-      return thunkAPI.rejectWithValue(data.error)
+      const data = await res.json();
+      if (data.error) {
+        return thunkAPI.rejectWithValue(data.error);
+      }
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
   }
-    return data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error);
-  }
-});
-
-
+);
 
 const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-  
-
-    
-
-    deleteorders: (state,action)=>{
-    state.users = state.users.map((item)=>{
-      if(item._id === action.payload.id){
-        return{
-          ...item,
-          followOrders: item.followOrders.filter((i)=> i._id !== action.payload.orderId)
+    deleteorders: (state, action) => {
+      state.users = state.users.map((item) => {
+        if (item._id === action.payload.id) {
+          return {
+            ...item,
+            followOrders: item.followOrders.filter(
+              (i) => i._id !== action.payload.orderId
+            ),
+          };
         }
-      }
-      return item
-    })
+        return item;
+      });
     },
     followFront: (state, action) => {
       state.users = state.users.map((item) => {
-        if(item._id === action.payload.id) {
-          return  item.followOrders.push(action.payload.order)
+        if (item._id === action.payload.id) {
+          return item.followOrders.push(action.payload.order);
         }
-        return item
-      })    }
+        return item;
+      });
+    },
   },
-    
+
   extraReducers: (builder) => {
     builder
-    .addCase(chanprice.fulfilled, (state, action) => {
-     state.users = state.users.map((item)=>{
-      if(item._id === action.payload.id){
-        return{
-          ...item,
-          wallet: Number(item.wallet) - Number(action.payload.price)
-        }
-      }
-      return item
-     })
-       
-    })
+      .addCase(chanprice.fulfilled, (state, action) => {
+        state.users = state.users.map((item) => {
+          if (item._id === action.payload.id) {
+            return {
+              ...item,
+              wallet: Number(item.wallet) - Number(action.payload.price),
+            };
+          }
 
-    .addCase(fetchUsers.rejected, (state, action) => {
-     
-      state.error = action.payload
-      state.load = false   
-    })
+          return item;
+        });
+      })
+
+      .addCase(fetchUsers.rejected, (state, action) => {
+        state.error = action.payload;
+        state.load = false;
+      })
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.users = action.payload;
         state.load = false;
-        state.error = null
+        state.error = null;
       })
       .addCase(fetchUsers.pending, (state, action) => {
         state.load = true;
-      })      
+      });
   },
 });
-export const {changeprice} = userSlice.actions
-export const {deleteorders} = userSlice.actions
-export const { followFront} = userSlice.actions
+export const { changeprice } = userSlice.actions;
+export const { deleteorders } = userSlice.actions;
+export const { followFront } = userSlice.actions;
 export default userSlice.reducer;
