@@ -23,19 +23,55 @@
     background-color: #f4f4f4;
   }
   
+.accepted_info {
+  padding: 5px 3px 3px 0px;
+  margin-top: 10px;
+  border-top: 1px solid #000;
+}
+
+.accepted_info p {
+  display: flex;
+}
+
+.accepted_info h4 {
+  margin-left: 10px;
+color: black;
+border-radius: 5px;
+background-color:#13c1fe;
+padding: 0 10px;
+font-size: 18px;
+}
+
+
 .freelancer {
   color: white;
     border: none;
-    background-color:rgb(11, 55, 82);
+    background-color:rgb(255, 255, 255);
     border-radius: 8px;
     margin-top: 10px;
     padding: 5px;
+}
+
+.freelancer:hover {
+  box-shadow: 0 5px 30px 0 rgba(21, 208, 52, 0.2);
+
+} 
+
+.freelancer h4 {
+color: rgb(5, 226, 38);
+margin-left: 5px;
+} 
+
+.rating {
+  color: gold;
 }
 
 .freelancer button {
     background-color:#06bc24;
     color: white;
     padding: 2px 5px;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
 

@@ -1,70 +1,123 @@
-# Getting Started with Create React App
+# Клон сайта для фриланса Workzilla
+<p> Это групповой проект, выполненный студентами школы программирования <a href="https://intocode.ru/" target="_blank">Intocode</a></p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Функционал сайта
 
-## Available Scripts
+- Авторизация 
+- Роль зачазчика и иполнителя
+- Просмотр всех заданий
+- Отклик на задания и удаление отклика
+- Добавление задания
+- Принять отклик на свое задание
+- Просмотр добавленных и откликнувшихся заданий
+- Сортировка заданий по категориям
 
-In the project directory, you can run:
 
-### `npm start`
+## Несколько скринов 
+![freelance1](https://user-images.githubusercontent.com/105605980/195789117-a6a4acf3-e8fd-44c9-83c2-5daa0162378b.jpeg)
+![freelance2](https://user-images.githubusercontent.com/105605980/195789135-86cff53d-b815-42d7-b87a-8882cc022bb4.jpeg)
+![freelance3](https://user-images.githubusercontent.com/105605980/195789150-ad8058d7-c42f-4c53-aa90-45563ad607a2.jpeg)
+![freelance4](https://user-images.githubusercontent.com/105605980/195789157-89c800e9-71b4-4e3e-944c-2d17dcdf9c31.jpeg)
+![freelance](https://user-images.githubusercontent.com/105605980/195789172-40079db6-ac11-4688-92e2-5e87620535b5.jpeg)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Запуск проекта
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Для запуска проекта вам необходимо набрать команду в терминале:
 
-### `npm test`
+```javascript
+npm i
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+После набрать команду:
 
-### `npm run build`
+```javascript
+npm run dev
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Технологии проекта
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p>
+- Github
+- Redux
+- Redux-thunk
+- JSON-Server
+- React-Router
+- Prettier
+- git 
+- Node.js
+- JavaScript
+</p>
 
-### `npm run eject`
+## Команда проекта
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<h3>
+  <a href="https://github.com/Benoyevski">
+    <img alt="Ayubov" src="https://img.shields.io/badge/-Ismail_Ayubov-black?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</h3>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<h3>
+  <a href="https://github.com/Bugazov">
+    <img alt="Bugazov" src="https://img.shields.io/badge/-Islam_Bugazov-black?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</h3>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<h3>
+  <a href="https://github.com/Ayubax">
+    <img alt="Adzhiev" src="https://img.shields.io/badge/-Ayub_Adzhiev-black?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</h3>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<h3>
+  <a href="https://github.com/DerWaldgang">
+    <img alt="Makhaev" src="https://img.shields.io/badge/-Salambek_Makhaev-black?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</h3>
 
-## Learn More
+### В этом проекте я выполнял следующие задачи:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [x] Создать react приложение
+- [x] Организовать роутинг-маршрутизация внутри проекта
+- [x] Создание и контроль веток git
+- [x] Верстка главной страницы, кроме футера
+- [x] Верстка карточки с кнопкой отклика
+- [x] Верстка страницы с добавленными заданиями в личном кабинете
+- [x] Прописывал логику отклика на задание и принятие отклика заказчиком на бэке и фронте
+- [x] Функционал отклика на задание, удаление отклика с задания, принятие отклика заказчиком
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Создал реакт-приложение</br>
+Из проекта удалил лишние файлы и создал нужные для начала работы папки и компоненты <br>
+Установил следующие библиотеки в зависимости:
 
-### Analyzing the Bundle Size
+- react-redux
+- redux
+- react-router-dom
+- redux-toolkit
+- prettier
+- react-loader-spinner
+- react toastify
+- prop-types
+- classnames
+- bcrypt
+- cors
+- dotenv
+- express
+- mongoose
+- morgan
+- jsonwebtoken
+- nodemon
+- react icons
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+### Для выполнения поставленных задач я использовал следующие библиотеки:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- redux, redux-toolkit - чтобы создавать асинхронные экшены
+- react-router-dom - для роутинга
+- 
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
