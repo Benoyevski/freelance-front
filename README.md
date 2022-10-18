@@ -1,4 +1,4 @@
-# Клон сайта для фриланса Workzilla
+# Cайт для фриланса.
 <p> Это групповой проект, выполненный студентами школы программирования <a href="https://intocode.ru/" target="_blank">Intocode</a></p>
 
 ## Функционал сайта
@@ -11,6 +11,7 @@
 - Принять отклик на свое задание
 - Просмотр добавленных и откликнувшихся заданий
 - Сортировка заданий по категориям
+- Уведомления в реальном времени при отклике и при принятии задания заказчиком  
 
 
 ## Несколько скринов 
@@ -38,12 +39,16 @@ npm run dev
 ## Технологии проекта
 
 <p>
-- Github
+- React
 - Redux
 - Redux-thunk
+- React-toolkit
+- Express
+- Mongoose
 - JSON-Server
 - React-Router
 - Prettier
+- Github
 - git 
 - Node.js
 - JavaScript
@@ -94,23 +99,17 @@ npm run dev
 Установил следующие библиотеки в зависимости:
 
 - react-redux
-- redux
 - react-router-dom
 - redux-toolkit
 - prettier
-- react-loader-spinner
-- react toastify
 - prop-types
-- classnames
 - bcrypt
 - cors
 - dotenv
-- express
-- mongoose
 - morgan
 - jsonwebtoken
 - nodemon
-- react icons
+
 
 ---
 
