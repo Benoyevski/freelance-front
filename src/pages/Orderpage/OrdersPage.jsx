@@ -13,6 +13,7 @@ import { Search } from "@mui/icons-material";
 import Headerlk from "../../components/HeaderLK/Headerlk";
 import { fetchUsers } from "../../features/userSlice";
 import io from "socket.io-client";
+import { serverUrl } from "../../serverUrl";
 import { addsocket } from "../../features/applicationSlice";
 const OrderPage = React.memo(() => {
   
@@ -29,8 +30,8 @@ const OrderPage = React.memo(() => {
   }, []);
   
   useEffect(()=>{
-    dispatch(addsocket(io("http://localhost:3030")));
-    setSocket(io("http://localhost:3030"))
+    dispatch(addsocket(io(`${serverUrl}`)));
+    setSocket(io(`${serverUrl}`))
   },[])
 
 

@@ -19,13 +19,6 @@ const Order = ({ order, user,socket }) => {
   };
   const token = useSelector((state) => state.application.token);
 
-  // useEffect(()=>{
-  //   setSocket(io("http://localhost:3030"));
-  // },[])
-
-  // useEffect(()=>{
-  //   socket.emit("newUser",id)
-  // },[socket,id])
 
   return (
     <>
