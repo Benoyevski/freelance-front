@@ -1,18 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchOrders, unFollow } from "../../features/orderSlice";
 import { fetchUsers } from "../../features/userSlice";
 import styles from "../Cabinet/follow.module.css";
 import Headerlk from "../HeaderLK/Headerlk";
-import { MagnifyingGlass } from "react-loader-spinner"
+import { MagnifyingGlass } from "react-loader-spinner";
 import { deleteorders } from "../../features/userSlice";
+
+
 const Follow = () => {
+  const idUser = useSelector((state)=> state.application.id)
   const dispatch = useDispatch();
+ 
 
   useEffect(() => {
     dispatch(fetchOrders());
     dispatch(fetchUsers());
   }, [dispatch]);
+
 
   const orders = useSelector((state) => state.order.orders);
 
@@ -24,23 +29,35 @@ const Follow = () => {
 
   const handleUnFollow = (orderId) => {
     dispatch(unFollow({ orderId, id }));
-    dispatch(deleteorders({orderId,id}))
+    dispatch(deleteorders({ orderId, id }));
   };
 
   if (loading) {
-    return <div style={{ width: "20%",height: '70vh', margin: "auto", display: 'flex', justifyContent: 'center', alignItems: "center", flexDirection: "column" }}>
-    <MagnifyingGlass
-      visible={true}
-      height="100"
-      width="100"
-      ariaLabel="MagnifyingGlass-loading"
-      wrapperStyle={{}}
-      wrapperClass="MagnifyingGlass-wrapper"
-      glassColor="#c0efff"
-      color="#e15b64"
-    />
-    <p>Ожидайте идет загрузка...</p>
-  </div>;
+    return (
+      <div
+        style={{
+          width: "20%",
+          height: "70vh",
+          margin: "auto",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
+        <MagnifyingGlass
+          visible={true}
+          height="100"
+          width="100"
+          ariaLabel="MagnifyingGlass-loading"
+          wrapperStyle={{}}
+          wrapperClass="MagnifyingGlass-wrapper"
+          glassColor="#c0efff"
+          color="#e15b64"
+        />
+        <p>Ожидайте идет загрузка...</p>
+      </div>
+    );
   }
   return (
     <>

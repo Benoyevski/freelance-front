@@ -1,27 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { follow } from "../../features/orderSlice";
 import styles from "../Order/order.module.css";
-import { fetchUsers, followFront } from "../../features/userSlice";
+import { followFront } from "../../features/userSlice";
 
-const Order = ({ order }) => {
-  
-  const id = useSelector((state) => state.application.id);
+const Order = ({ order, user,socket }) => {
   const dispatch = useDispatch();
+  const id = useSelector((state) => state.application.id);
 
-  useEffect(()=> {
-    dispatch(fetchUsers())
-  },[])
-  const user = useSelector((state) =>
-    state.user.users.find((item) => item._id === id)
-  );
-  const handleFollow = (orderId) => {
+  const handleFollow = (orderId,userId) => {
+    socket.emit("notif",{
+      senderId:user,
+      receiverId:userId,
+      order:orderId
+    })
     dispatch(follow({ id, orderId }));
     dispatch(followFront({ id, order }));
   };
   const token = useSelector((state) => state.application.token);
 
+  // useEffect(()=>{
+  //   setSocket(io("http://localhost:3030"));
+  // },[])
 
+  // useEffect(()=>{
+  //   socket.emit("newUser",id)
+  // },[socket,id])
 
   return (
     <>
@@ -48,7 +52,7 @@ const Order = ({ order }) => {
           <div className={styles.order_btn}>
             {token && (
               <button
-                onClick={() => handleFollow(order._id)}
+                onClick={() => handleFollow(order._id,order.creator)}
                 className={styles.order_btn}
               >
                 {order.freelancers.find((item) => item._id === id)

@@ -4,6 +4,7 @@ const initialState = {
   load: false,
   token: localStorage.getItem("token"),
   id: localStorage.getItem("id"),
+  socket:null
 };
 export const authThunk = createAsyncThunk(
   "fetch/auth",
@@ -51,7 +52,11 @@ export const loginThunk = createAsyncThunk(
 const applicationSlice = createSlice({
   name: "application",
   initialState,
-  reducers: {},
+  reducers: {
+    addsocket: (state,action)=>{
+      state.socket = action.payload
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(authThunk.pending, (state, action) => {
@@ -76,5 +81,6 @@ const applicationSlice = createSlice({
       });
   },
 });
+export const {addsocket} = applicationSlice.actions
 
 export default applicationSlice.reducer;

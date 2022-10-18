@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { addsocket } from "../../features/applicationSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { acceptFollow, fetchOrders, unFollow } from "../../features/orderSlice";
+import { acceptFollow, addUser, fetchOrders, unFollow } from "../../features/orderSlice";
 import { fetchUsers } from "../../features/userSlice";
 import { chanprice } from "../../features/userSlice";
 import { acceptUser } from "../../features/orderSlice";
 import styles from "../Cabinet/customer.module.css";
 import Headerlk from "../HeaderLK/Headerlk";
-
+import io from "socket.io-client";
 import { changeprice } from "../../features/userSlice";
 import Order from "../Order/Order";
+import { ToastContainer, toast } from "react-toastify";
 
 
 import { MagnifyingGlass } from "react-loader-spinner"
@@ -16,6 +18,7 @@ import { MagnifyingGlass } from "react-loader-spinner"
 
 
 const Customer = () => {
+  const socket = useSelector((state)=> state.application.socket)
   const [price,setPrice] = useState(0)
   
   const dispatch = useDispatch();
@@ -27,14 +30,32 @@ const Customer = () => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
+  const notify = () =>
+    toast("Вы не авторизованы!", {
+      type: "error",
+    });
+
   const orders = useSelector((state) => state.order.orders);
 
   const id = useSelector((state) => state.application.id);
-  const user = useSelector((state) =>
-    state.user.users.find((item) => item._id === id)
-  );
   const loading = useSelector((state) => state.user.load);
 
+  useEffect(()=>{
+    dispatch(addsocket(io("http://localhost:3030")));
+  },[])
+
+
+  useEffect(() => {
+    socket?.emit("newUser", id);
+  }, [socket,id]);
+useEffect(()=>{
+  socket?.on("getNotif",(data)=>{
+    notify()
+    dispatch(addUser({user:data.senderId,orderId:data.order}))
+
+
+  })
+},[socket])
   const handleOpenModal = (i) => {
     setPrice(i.price)
     setModal(true);
@@ -80,7 +101,6 @@ const Customer = () => {
               ) : (
                 <div>
                   {modalFreelancers.freelancers.map((item) => {
-                    console.log(item)
                     return (
                       <div key={item._id} className={styles.freelancer}>
                         <h4>{item.login}</h4>
@@ -144,6 +164,7 @@ const Customer = () => {
             })}
           </div>
         </div>
+        <ToastContainer/>
       </div>
     </>
   );

@@ -7,6 +7,8 @@ import Task from "./components/Task/Task";
 import Follow from "./components/Cabinet/Follow";
 import { useSelector } from "react-redux";
 import Customer from "./components/Cabinet/Customer";
+import io from 'socket.io-client';
+
 
 function App() {
   const token = useSelector((state)=> state.application.token)
