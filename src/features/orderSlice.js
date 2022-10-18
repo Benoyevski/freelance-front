@@ -127,6 +127,14 @@ const orderSlice = createSlice({
 
       })
     },
+    addUser: (state,action)=>{
+      state.orders = state.orders.map((item)=>{
+      if(item._id === action.payload.orderId){
+        item.freelancers.push(action.payload.user)
+      }
+      return item
+    })
+  }
   },
   extraReducers: (builder) => {
     builder
@@ -160,6 +168,6 @@ const orderSlice = createSlice({
   },
 });
 
-export const {acceptUser} = orderSlice.actions
+export const {acceptUser,addUser} = orderSlice.actions
 
 export default orderSlice.reducer;
