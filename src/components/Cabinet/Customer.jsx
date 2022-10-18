@@ -31,7 +31,7 @@ const Customer = () => {
   }, [dispatch]);
 
   const notify = () =>
-    toast("Вы не авторизованы!", {
+    toast("Вам пришло уведомление!", {
       type: "error",
     });
 
