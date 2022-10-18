@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
+import { serverUrl } from "../serverUrl";
 const initialState = {
   users: [],
   favorite: [],
@@ -11,7 +11,7 @@ export const chanprice = createAsyncThunk(
   "patch/price",
   async ({ id, userId, price }, thunkAPI) => {
     try {
-      const res = await fetch(`http://localhost:3030/users/changeprice/${id}`, {
+      const res = await fetch(`${serverUrl}/users/changeprice/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export const fetchUsers = createAsyncThunk(
   "fetch/user",
   async (_, thunkAPI) => {
     try {
-      const res = await fetch("http://localhost:3030/users");
+      const res = await fetch(`serverUrl/users`);
 
       const data = await res.json();
       if (data.error) {

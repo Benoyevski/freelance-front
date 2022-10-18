@@ -12,8 +12,8 @@ import { changeprice } from "../../features/userSlice";
 import Order from "../Order/Order";
 import { ToastContainer, toast } from "react-toastify";
 
-
 import { MagnifyingGlass } from "react-loader-spinner"
+import { serverUrl } from "../../serverUrl";
 
 
 
@@ -41,7 +41,7 @@ const Customer = () => {
   const loading = useSelector((state) => state.user.load);
 
   useEffect(()=>{
-    dispatch(addsocket(io("http://localhost:3030")));
+    dispatch(addsocket(io(`${serverUrl}`)));
   },[])
 
 

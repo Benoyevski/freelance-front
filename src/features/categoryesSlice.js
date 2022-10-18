@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-
+import { serverUrl } from "../serverUrl";
 
 const initialState = {
     category : [],
@@ -8,7 +8,7 @@ const initialState = {
 
 export const fetchCategory = createAsyncThunk("fetch/category",  async (_, thunkAPI) => {
     try {
-        const res = await fetch("http://localhost:3030/categories");
+        const res = await fetch(`${serverUrl}/categories`);
         
         const data  = await res.json()
 

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
-
+import { serverUrl } from "../serverUrl";
 const initialState = {
   orders: [],
   role: localStorage.getItem("role"),
@@ -11,7 +11,7 @@ export const follow = createAsyncThunk(
   "patch/order",
   async ({ id, orderId }, thunkAPI) => {
     try {
-      const res = await fetch(`http://localhost:3030/followOrder/${orderId}`, {
+      const res = await fetch(`${serverUrl}rl}rl}/followOrder/${orderId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -31,7 +31,7 @@ export const unFollow = createAsyncThunk(
   async ({ orderId, id }, thunkAPI) => {
     try {
 
-      const res = await fetch(`http://localhost:3030/unFollow/${orderId}`, {
+      const res = await fetch(`${serverUrl}/unFollow/${orderId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export const acceptFollow = createAsyncThunk('patch/orderFollow',
 async ({ orderId, userId}, thunkAPI) => {
   try {
     console.log(orderId, 'asdasdasdsa');
-    const res = await fetch(`http://localhost:3030/accept/${orderId}`, {
+    const res = await fetch(`${serverUrl}/accept/${orderId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +70,7 @@ export const fetchOrders = createAsyncThunk(
   "fetch/orders",
   async (_, thunkAPI) => {
     try {
-      const res = await fetch("http://localhost:3030/order");
+      const res = await fetch(`${serverUrl}/order`);
       const data = await res.json();
       return data;
     } catch (error) {
@@ -86,7 +86,7 @@ export const addOrder = createAsyncThunk(
     thunkAPI
   ) => {
     try {
-      const res = await fetch("http://localhost:3030/order", {
+      const res = await fetch(`${serverUrl}/order`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${thunkAPI.getState().application.token}`,
