@@ -9,11 +9,11 @@ const Order = ({ order, user,socket }) => {
   const id = useSelector((state) => state.application.id);
 
   const handleFollow = (orderId,userId) => {
-   // socket.emit("notif",{
-   //   senderId:user,
-   //   receiverId:userId,
-   //   order:orderId
-   // })
+   socket.emit("notif",{
+      senderId:user,
+      receiverId:userId,
+      order:orderId
+    })
     dispatch(follow({ id, orderId }));
     dispatch(followFront({ id, order }));
   };
