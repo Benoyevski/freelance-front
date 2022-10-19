@@ -42,6 +42,7 @@ const OrderPage = React.memo(() => {
   const user = useSelector((state) =>
     state.user.users?.find((item) => item._id === id)
   );
+  console.log(user)
   const category = useSelector((state) => state.category.category);
   const orders = useSelector((state) => state.order.orders);
   const loading = useSelector((state) => state.order.loading);

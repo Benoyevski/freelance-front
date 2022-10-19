@@ -11,7 +11,7 @@ export const follow = createAsyncThunk(
   "patch/order",
   async ({ id, orderId }, thunkAPI) => {
     try {
-      const res = await fetch(`${serverUrl}rl}rl}/followOrder/${orderId}`, {
+      const res = await fetch(`${serverUrl}/followOrder/${orderId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

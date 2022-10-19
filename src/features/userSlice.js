@@ -29,7 +29,7 @@ export const fetchUsers = createAsyncThunk(
   "fetch/user",
   async (_, thunkAPI) => {
     try {
-      const res = await fetch(`serverUrl/users`);
+      const res = await fetch(`${serverUrl}/users`);
 
       const data = await res.json();
       if (data.error) {
